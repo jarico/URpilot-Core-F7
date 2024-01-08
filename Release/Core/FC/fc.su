@@ -1,0 +1,4 @@
+../Core/FC/fc.c:68:6:iniciarFC	16	static
+../Core/FC/fc.c:86:20:actualizarLazoVelAngularFC	8	static
+../Core/FC/fc.c:106:6:actualizarLazoActitudFC	8	static
+../Core/FC/fc.c:126:6:actualizarLazoPosicionFC	0	static

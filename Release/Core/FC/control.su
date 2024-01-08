@@ -1,0 +1,8 @@
+../Core/FC/control.c:75:6:iniciarControladores	32	static
+../Core/FC/control.c:101:20:actualizarControlVelAngular	48	static
+../Core/FC/control.c:132:6:actualizarControlActitud	32	static
+../Core/FC/control.c:162:7:uRollPID	0	static
+../Core/FC/control.c:174:7:uPitchPID	0	static
+../Core/FC/control.c:186:7:uYawPID	0	static
+../Core/FC/control.c:198:7:uAltPID	0	static
+../Core/FC/control.c:210:6:uTotalPID	0	static

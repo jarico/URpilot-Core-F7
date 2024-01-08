@@ -1,0 +1,11 @@
+../Core/Drivers/usb_descriptor.c:217:10:descriptorDispositivoUSB	0	static
+../Core/Drivers/usb_descriptor.c:231:10:descriptorIdLangDispositivoUSB	0	static
+../Core/Drivers/usb_descriptor.c:328:10:descriptorBOSDispositivoUSB	0	static
+../Core/Drivers/usb_descriptor.c:245:10:descriptorFabricanteDispositivoUSB	8	static
+../Core/Drivers/usb_descriptor.c:259:10:descriptorProductoDispositivoUSB	8	static
+../Core/Drivers/usb_descriptor.c:293:10:descriptorConfigDispositivoUSB	8	static
+../Core/Drivers/usb_descriptor.c:310:10:descriptorInterfazDispositivoUSB	8	static
+../Core/Drivers/usb_descriptor.c:162:6:generarNumeroSerieUSB	0	static
+../Core/Drivers/usb_descriptor.c:276:10:descriptorNumSerieDispositivoUSB	8	static
+../Core/Drivers/usb_descriptor.c:185:6:convertirIntEnChar	12	static
+../Core/Drivers/usb_descriptor.c:205:26:punteroDescriptorUSB	0	static

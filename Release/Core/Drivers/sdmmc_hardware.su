@@ -1,0 +1,5 @@
+../Core/Drivers/sdmmc_hardware.c:198:6:comprobarConfigHardwareSDMMC	12	static
+../Core/Drivers/sdmmc_hardware.c:143:6:asignarHALsdmmc	24	static
+../Core/Drivers/sdmmc_hardware.c:238:6:comprobarPinSDMMC	0	static
+../Core/Drivers/sdmmc_hardware.c:256:6:comprobarStreamDMAsdmmc	0	static
+../Core/Drivers/sdmmc_hardware.c:275:10:canalStreamDMAsdmmc	4	static

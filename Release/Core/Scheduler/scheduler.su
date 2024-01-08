@@ -1,0 +1,17 @@
+../Core/Scheduler/scheduler.c:83:6:limpiarColaTareas	8	static
+../Core/Scheduler/scheduler.c:97:6:anadirTareaEnCola	24	static
+../Core/Scheduler/scheduler.c:122:6:quitarTareaDeCola	16	static
+../Core/Scheduler/scheduler.c:141:6:tareaEnCola	0	static
+../Core/Scheduler/scheduler.c:157:24:primeraTareaCola	0	static
+../Core/Scheduler/scheduler.c:170:24:siguienteTareaCola	0	static
+../Core/Scheduler/scheduler.c:182:6:iniciarScheduler	8	static
+../Core/Scheduler/scheduler.c:195:6:ajustarFrecuenciaEjecucionTarea	0	static
+../Core/Scheduler/scheduler.c:219:6:calcularCargaScheduler	8	static
+../Core/Scheduler/scheduler.c:250:9:cargaScheduler	0	static
+../Core/Scheduler/scheduler.c:262:6:habilitarEstadisticasScheduler	0	static
+../Core/Scheduler/scheduler.c:274:6:deshabilitarEstadisticasScheduler	0	static
+../Core/Scheduler/scheduler.c:286:6:infoTarea	12	static
+../Core/Scheduler/scheduler.c:306:6:resetearEstadisticasTarea	0	static
+../Core/Scheduler/scheduler.c:329:6:resetearTiempoMaxEjecTarea	0	static
+../Core/Scheduler/scheduler.c:346:6:actualizarBitVidaScheduler	8	static
+../Core/Scheduler/scheduler.c:366:20:scheduler	40	static

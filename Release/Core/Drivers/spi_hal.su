@@ -1,0 +1,13 @@
+../Core/Drivers/spi_hal.c:124:20:escribirSPI	16	static
+../Core/Drivers/spi_hal.c:136:20:escribirBufferSPI	16	static
+../Core/Drivers/spi_hal.c:155:20:leerSPI	16	static
+../Core/Drivers/spi_hal.c:167:20:leerBufferSPI	16	static
+../Core/Drivers/spi_hal.c:186:20:transferirSPI	24	static
+../Core/Drivers/spi_hal.c:198:20:transferirBufferSPI	40	static
+../Core/Drivers/spi_hal.c:217:20:drenarBufferRecepcionSPI	8	static
+../Core/Drivers/spi_hal.c:233:20:ocupadoSPI	8	static
+../Core/Drivers/spi_hal.c:251:6:ajustarRelojSPI	16	static
+../Core/Drivers/spi_hal.c:273:13:ajustarPrescalerBaudrateSPI	0	static
+../Core/Drivers/spi_hal.c:285:31:nivelFifoTxSPI	0	static
+../Core/Drivers/spi_hal.c:297:6:habilitarRelojSPI	24	static
+../Core/Drivers/spi_hal.c:72:6:iniciarDriverSPI	24	static

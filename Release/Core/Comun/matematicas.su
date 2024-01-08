@@ -1,0 +1,13 @@
+../Core/Comun/matematicas.c:67:17:limitarUint16	0	static
+../Core/Comun/matematicas.c:84:16:limitarInt32	0	static
+../Core/Comun/matematicas.c:101:14:limitarFloat	0	static
+../Core/Comun/matematicas.c:118:14:moduloVector2	0	static
+../Core/Comun/matematicas.c:134:14:moduloVector3	0	static
+../Core/Comun/matematicas.c:150:13:productoCruzado3F	0	static
+../Core/Comun/matematicas.c:164:14:envolverInt360	16	static
+../Core/Comun/matematicas.c:181:14:envolverFloat360	16	static
+../Core/Comun/matematicas.c:198:13:esPotenciaDeDos	0	static
+../Core/Comun/matematicas.c:210:14:invSqrt	0	static
+../Core/Comun/matematicas.c:234:13:normalizar3Array	0	static
+../Core/Comun/matematicas.c:251:13:normalizar4Array	0	static
+../Core/Comun/matematicas.c:269:10:generarNumeroAleatorioUint16	8	static

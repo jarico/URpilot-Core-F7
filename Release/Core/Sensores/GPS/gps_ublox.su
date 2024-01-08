@@ -1,0 +1,16 @@
+../Core/Sensores/GPS/gps_ublox.c:999:6:configurarFrecuenciaMensajeGPSublox.part.0	32	static
+../Core/Sensores/GPS/gps_ublox.c:384:6:enviarMensajeGPSublox.part.0.constprop	40	static
+../Core/Sensores/GPS/gps_ublox.c:384:6:enviarMensajeGPSublox.part.0.constprop	32	static
+../Core/Sensores/GPS/gps_ublox.c:158:6:iniciarGPSublox	8	static
+../Core/Sensores/GPS/gps_ublox.c:191:6:detectarGPSublox	4	static
+../Core/Sensores/GPS/gps_ublox.c:262:6:solcitarSiguienteConfigGPSublox	24	static
+../Core/Sensores/GPS/gps_ublox.c:353:6:solicitarPuertoGPSublox	16	static
+../Core/Sensores/GPS/gps_ublox.c:368:6:solicitarFrecuenciaMensajeGPSublox	24	static
+../Core/Sensores/GPS/gps_ublox.c:384:6:enviarMensajeGPSublox	48	static
+../Core/Sensores/GPS/gps_ublox.c:414:6:actualizarChecksumGPSublox	4	static
+../Core/Sensores/GPS/gps_ublox.c:917:6:verificarFrecuenciaMensajeGPSublox	16	static
+../Core/Sensores/GPS/gps_ublox.c:999:6:configurarFrecuenciaMensajeGPSublox	24	static
+../Core/Sensores/GPS/gps_ublox.c:1018:6:configurarFrecuenciaNavegacionGPSublox	40	static
+../Core/Sensores/GPS/gps_ublox.c:552:6:analizarTramaGPSublox	104	static
+../Core/Sensores/GPS/gps_ublox.c:430:6:leerGPSublox	40	static
+../Core/Sensores/GPS/gps_ublox.c:1035:6:mensajeInesperadoGPSublox	24	static

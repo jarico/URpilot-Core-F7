@@ -1,0 +1,7 @@
+../Core/AHRS/madgwick.c:86:6:iniciarMadgwick	16	static
+../Core/AHRS/madgwick.c:282:6:corregirCuaternionMadgwick	20	static
+../Core/AHRS/madgwick.c:330:6:actualizarCuaternionDerivadaMadgwick	0	static
+../Core/AHRS/madgwick.c:162:6:actualizarConMagMadgwick	112	static
+../Core/AHRS/madgwick.c:231:6:actualizarSinMagMadgwick	72	static
+../Core/AHRS/madgwick.c:113:6:actualizarMadgwick	88	static
+../Core/AHRS/madgwick.c:346:6:actualizarCuaternionMadgwick	0	static

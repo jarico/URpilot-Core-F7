@@ -1,0 +1,10 @@
+../Core/Sensores/Barometro/baro_bosch.c:311:6:actualizarBaroBosch	48	static
+../Core/Sensores/Barometro/baro_bosch.c:155:6:iniciarBusBaroBosch	16	static
+../Core/Sensores/Barometro/baro_bosch.c:171:6:leerPromBaroBosch	64	static
+../Core/Sensores/Barometro/baro_bosch.c:103:6:iniciarBaroBosch	48	static
+../Core/Sensores/Barometro/baro_bosch.c:202:6:leerWordPromBaroBosch	16	static
+../Core/Sensores/Barometro/baro_bosch.c:221:6:leerIntWordPromBaroBosch	16	static
+../Core/Sensores/Barometro/baro_bosch.c:240:6:leer16bitsAdcBaroBosch	16	static
+../Core/Sensores/Barometro/baro_bosch.c:258:6:leer24bitsAdcBaroBosch	16	static
+../Core/Sensores/Barometro/baro_bosch.c:365:6:calcularBaroBosch	24	static
+../Core/Sensores/Barometro/baro_bosch.c:276:6:leerBaroBosch	8	static

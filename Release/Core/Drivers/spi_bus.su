@@ -1,0 +1,16 @@
+../Core/Drivers/spi_bus.c:65:6:ocupadoBusSPI	0	static
+../Core/Drivers/spi_bus.c:77:6:drenarRecepcionBusSPI	0	static
+../Core/Drivers/spi_bus.c:89:6:escribirRawBusSPI	0	static
+../Core/Drivers/spi_bus.c:101:6:escribirBusSPI	16	static
+../Core/Drivers/spi_bus.c:118:6:escribirRawRegistroBusSPI	16	static
+../Core/Drivers/spi_bus.c:138:6:escribirRegistroBusSPI	16	static
+../Core/Drivers/spi_bus.c:155:6:escribirRawBufferRegistroBusSPI	24	static
+../Core/Drivers/spi_bus.c:175:6:escribirBufferRegistroBusSPI	24	static
+../Core/Drivers/spi_bus.c:192:6:transferirRawBusSPI	0	static
+../Core/Drivers/spi_bus.c:204:6:transferirBusSPI	24	static
+../Core/Drivers/spi_bus.c:221:6:transferirRawBufferBusSPI	0	static
+../Core/Drivers/spi_bus.c:233:6:transferirBufferBusSPI	24	static
+../Core/Drivers/spi_bus.c:250:6:leerRawRegistroBusSPI	0	static
+../Core/Drivers/spi_bus.c:262:6:leerRegistroBusSPI	24	static
+../Core/Drivers/spi_bus.c:279:6:leerRawBufferRegistroBusSPI	24	static
+../Core/Drivers/spi_bus.c:299:6:leerBufferRegistroBusSPI	24	static

@@ -1,0 +1,9 @@
+../Core/FC/mixer.c:207:6:iniciarMixer	8	static
+../Core/FC/mixer.c:231:20:actualizarMixer	0	static
+../Core/FC/mixer.c:269:20:calcularTablaMixer	64	static
+../Core/FC/mixer.c:285:21:escalarMixer	0	static
+../Core/FC/mixer.c:302:9:numMotores	0	static
+../Core/FC/mixer.c:314:6:pararMotores	0	static
+../Core/FC/mixer.c:326:6:apagarMotoresMixer	0	static
+../Core/FC/mixer.c:339:6:encenderMotoresMixer	0	static
+../Core/FC/mixer.c:352:6:motoresEncendidosMixer	0	static

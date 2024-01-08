@@ -1,0 +1,2 @@
+../Core/Drivers/spi_hardware.c:184:6:asignarHALspi	16	static
+../Core/Drivers/spi_hardware.c:210:6:pinSPI	12	static

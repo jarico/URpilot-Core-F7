@@ -1,0 +1,15 @@
+../Core/Blackbox/sd_sdio.c:91:6:iniciarSDsdio	16	static
+../Core/Blackbox/sd_sdio.c:317:21:iniciarEscrituraBloquesSDsdio	24	static
+../Core/Blackbox/sd_sdio.c:267:6:leerBloqueSDsdio	40	static
+../Core/Blackbox/sd_sdio.c:351:21:escribirBloqueSDsdio	48	static
+../Core/Blackbox/sd_sdio.c:422:6:inicializacionCompletaSDsdio	16	static
+../Core/Blackbox/sd_sdio.c:450:6:resetearSDsdio	8	static
+../Core/Blackbox/sd_sdio.c:472:6:tarjetaSDsdioReady	8	static
+../Core/Blackbox/sd_sdio.c:485:6:leerRegistroCSDsdSDIO	96	static
+../Core/Blackbox/sd_sdio.c:506:6:leerRegistroCIDsdSDIO	96	static
+../Core/Blackbox/sd_sdio.c:541:21:finalizarEscrituraBloquesSDsdio	16	static
+../Core/Blackbox/sd_sdio.c:132:6:sondearSDsdio	112	static
+../Core/Blackbox/sd_sdio.c:569:27:recibirBloqueDatosSDsdio	8	static
+../Core/Blackbox/sd_sdio.c:590:6:resetearCacheSDsdio	0	static
+../Core/Blackbox/sd_sdio.c:602:6:escribirCacheSDsdio	16	static
+../Core/Blackbox/sd_sdio.c:618:10:obtenerContadorCacheSDsdio	0	static

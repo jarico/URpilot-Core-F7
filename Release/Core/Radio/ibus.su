@@ -1,0 +1,4 @@
+../Core/Radio/ibus.c:83:6:iniciarIBUS	16	static
+../Core/Radio/ibus.c:106:6:procesarByteIBUS	8	static
+../Core/Radio/ibus.c:178:6:leerIBUS	120	static
+../Core/Radio/ibus.c:144:6:decodificarTramaIBUS	56	static

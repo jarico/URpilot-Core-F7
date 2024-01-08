@@ -1,0 +1,5 @@
+../Core/Radio/sbus.c:124:6:iniciarSBUS	16	static
+../Core/Radio/sbus.c:147:6:procesarByteSBUS	24	static
+../Core/Radio/sbus.c:185:6:decodificarTramaSBUS.part.0	24	static
+../Core/Radio/sbus.c:258:6:leerSBUS	40	static
+../Core/Radio/sbus.c:185:6:decodificarTramaSBUS	0	static

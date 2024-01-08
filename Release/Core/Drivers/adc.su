@@ -1,0 +1,11 @@
+../Core/Drivers/adc.c:95:8:punteroADC	0	static
+../Core/Drivers/adc.c:107:6:iniciarADC	48	static
+../Core/Drivers/adc.c:153:6:iniciadoADC	0	static
+../Core/Drivers/adc.c:165:14:puertoADC	0	static
+../Core/Drivers/adc.c:177:6:asignarPuertoADC	8	static
+../Core/Drivers/adc.c:189:10:leerValorCanalADC	0	static
+../Core/Drivers/adc.c:201:10:leerCanalADC	0	static
+../Core/Drivers/adc.c:219:6:iniciarAdcInterno	40	static
+../Core/Drivers/adc.c:238:6:actualizarADCinterno	16	static
+../Core/Drivers/adc.c:257:7:temperaturaCore	0	static
+../Core/Drivers/adc.c:270:7:tensionReferencia	0	static

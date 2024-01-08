@@ -1,0 +1,2 @@
+../Core/Drivers/i2c_hardware.c:125:6:asignarHALi2c	16	static
+../Core/Drivers/i2c_hardware.c:148:6:pinI2C	8	static

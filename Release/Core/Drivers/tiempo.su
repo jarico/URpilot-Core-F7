@@ -1,0 +1,7 @@
+../Core/Drivers/tiempo.c:68:6:iniciarContadorCiclos	8	static
+../Core/Drivers/tiempo.c:81:10:microsISR	4	static,ignoring_inline_asm
+../Core/Drivers/tiempo.c:109:10:micros	4	static,ignoring_inline_asm
+../Core/Drivers/tiempo.c:132:10:millis	0	static
+../Core/Drivers/tiempo.c:144:6:delayMicroseconds	40	static,ignoring_inline_asm
+../Core/Drivers/tiempo.c:157:6:delay	36	static,ignoring_inline_asm
+../Core/Drivers/tiempo.c:170:6:HAL_Delay	36	static,ignoring_inline_asm

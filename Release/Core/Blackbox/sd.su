@@ -1,0 +1,11 @@
+../Core/Blackbox/sd.c:70:7:punteroSD	0	static
+../Core/Blackbox/sd.c:82:6:iniciarPinDeteccionSD	0	static
+../Core/Blackbox/sd.c:95:6:iniciarSD	8	static
+../Core/Blackbox/sd.c:130:6:tarjetaSDinsertada	0	static
+../Core/Blackbox/sd.c:152:6:tarjetaSDiniciada	0	static
+../Core/Blackbox/sd.c:164:6:tarjetaSDfuncional	0	static
+../Core/Blackbox/sd.c:176:22:leerMetadatosSD	0	static
+../Core/Blackbox/sd.c:188:6:sondearSD	0	static
+../Core/Blackbox/sd.c:203:6:leerBloqueSD	4	static
+../Core/Blackbox/sd.c:215:21:iniciarEscrituraBloquesSD	0	static
+../Core/Blackbox/sd.c:227:21:escribirBloqueSD	4	static

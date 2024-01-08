@@ -1,0 +1,5 @@
+../Core/Core/led_estado.c:98:6:configurarLedEstado	0	static
+../Core/Core/led_estado.c:118:6:iniciarLedEstado	16	static
+../Core/Core/led_estado.c:144:6:escribirLedEstado	16	static
+../Core/Core/led_estado.c:210:6:escribirLed	0	static
+../Core/Core/led_estado.c:225:6:invertirLed	0	static

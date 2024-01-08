@@ -1,0 +1,5 @@
+../Core/Drivers/uart_hardware.c:317:6:comprobarConfigHardwareUART	20	static
+../Core/Drivers/uart_hardware.c:286:6:asignarHALuart	24	static
+../Core/Drivers/uart_hardware.c:345:6:comprobarPinUART	0	static
+../Core/Drivers/uart_hardware.c:362:6:comprobarStreamDMAuart	0	static
+../Core/Drivers/uart_hardware.c:379:6:pinUART	8	static

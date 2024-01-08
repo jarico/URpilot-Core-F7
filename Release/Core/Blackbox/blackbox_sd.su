@@ -1,0 +1,17 @@
+../Core/Blackbox/blackbox_sd.c:389:6:ficheroLogCreadoBlackbox	0	static
+../Core/Blackbox/blackbox_sd.c:370:6:directorioLogCreadoBlackbox	8	static
+../Core/Blackbox/blackbox_sd.c:96:6:abrirBlackbox	8	static
+../Core/Blackbox/blackbox_sd.c:111:6:iniciarLogBlackbox	48	static
+../Core/Blackbox/blackbox_sd.c:180:6:finalizarLogBlackbox	8	static
+../Core/Blackbox/blackbox_sd.c:198:6:escribirBlackbox	0	static
+../Core/Blackbox/blackbox_sd.c:210:10:escribirStringBlackbox	16	static
+../Core/Blackbox/blackbox_sd.c:227:10:printfBlackbox	80	static
+../Core/Blackbox/blackbox_sd.c:249:6:escribirLineaCabeceraBlackbox	28	static
+../Core/Blackbox/blackbox_sd.c:275:6:calcularBytesLibresCabBlackbox	8	static
+../Core/Blackbox/blackbox_sd.c:289:6:blackboxLlena	0	static
+../Core/Blackbox/blackbox_sd.c:301:6:forzarFlushCompletoBlackbox	8	static
+../Core/Blackbox/blackbox_sd.c:319:6:forzarFlushBlackbox	0	static
+../Core/Blackbox/blackbox_sd.c:331:6:trabajandoBlackbox	8	static
+../Core/Blackbox/blackbox_sd.c:343:9:blackboxNumeroLog	0	static
+../Core/Blackbox/blackbox_sd.c:355:6:comprobarEspacioBlackbox	0	static
+../Core/Blackbox/blackbox_sd.c:408:6:crearFicheroLogBlackbox	40	static

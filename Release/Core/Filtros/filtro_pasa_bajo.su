@@ -1,0 +1,10 @@
+../Core/Filtros/filtro_pasa_bajo.c:67:6:ajustarFiltroPasaBajo	8	static
+../Core/Filtros/filtro_pasa_bajo.c:82:6:actualizarFrecFiltroPasaBajo	8	static
+../Core/Filtros/filtro_pasa_bajo.c:95:6:calcularAlphaFiltroPasaBajo	8	static
+../Core/Filtros/filtro_pasa_bajo.c:113:6:resetearFiltroPasaBajo	0	static
+../Core/Filtros/filtro_pasa_bajo.c:125:7:actualizarFiltroPasaBajo	0	static
+../Core/Filtros/filtro_pasa_bajo.c:138:6:ajustarFiltroPasaBajo2P	8	static
+../Core/Filtros/filtro_pasa_bajo.c:153:6:actualizarFrecFiltroPasaBajo2P	8	static
+../Core/Filtros/filtro_pasa_bajo.c:166:6:calcularParametrosFiltroPasaBajo2P	8	static
+../Core/Filtros/filtro_pasa_bajo.c:191:6:resetearFiltroPasaBajo2P	0	static
+../Core/Filtros/filtro_pasa_bajo.c:204:7:actualizarFiltroPasaBajo2P	0	static

@@ -1,0 +1,13 @@
+../Core/Drivers/i2c_hal.c:117:20:escribirMemI2C	40	static
+../Core/Drivers/i2c_hal.c:129:20:escribirBufferMemI2C	48	static
+../Core/Drivers/i2c_hal.c:148:20:escribirI2C	32	static
+../Core/Drivers/i2c_hal.c:160:20:escribirBufferI2C	32	static
+../Core/Drivers/i2c_hal.c:179:20:leerMemI2C	40	static
+../Core/Drivers/i2c_hal.c:191:20:leerBufferMemI2C	48	static
+../Core/Drivers/i2c_hal.c:210:20:leerI2C	32	static
+../Core/Drivers/i2c_hal.c:222:20:leerBufferI2C	32	static
+../Core/Drivers/i2c_hal.c:241:20:drenarBufferRecepcionI2C	8	static
+../Core/Drivers/i2c_hal.c:257:20:ocupadoI2C	8	static
+../Core/Drivers/i2c_hal.c:274:6:ajustarRelojI2C	8	static
+../Core/Drivers/i2c_hal.c:290:6:habilitarRelojI2C	16	static
+../Core/Drivers/i2c_hal.c:68:6:iniciarDriverI2C	32	static

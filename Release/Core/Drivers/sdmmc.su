@@ -1,0 +1,8 @@
+../Core/Drivers/sdmmc.c:68:10:punteroSDMMC	0	static
+../Core/Drivers/sdmmc.c:80:6:iniciarSDMMC	8	static
+../Core/Drivers/sdmmc.c:112:6:sdmmcIniciado	0	static
+../Core/Drivers/sdmmc.c:124:6:errorCallbackSDMMC	0	static
+../Core/Drivers/sdmmc.c:136:10:contadorErrorSDMMC	0	static
+../Core/Drivers/sdmmc.c:148:6:resetearContadorErrorSDMMC	0	static
+../Core/Drivers/sdmmc.c:160:10:tipoSDMMC	0	static
+../Core/Drivers/sdmmc.c:171:10:infoSDMMC	8	static

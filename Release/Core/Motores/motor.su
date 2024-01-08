@@ -1,0 +1,15 @@
+../Core/Motores/motor.c:280:10:motores	0	static
+../Core/Motores/motor.c:390:6:actualizarPWMnoUsado	0	static
+../Core/Motores/motor.c:426:6:escribirPWMnoUsado	0	static
+../Core/Motores/motor.c:402:6:actualizarPWMoneshot	24	static
+../Core/Motores/motor.c:440:6:escribirPWMestandar	8	static
+../Core/Motores/motor.c:91:6:iniciarMotores	80	static
+../Core/Motores/motor.c:222:6:deshabilitarMotores	8	static
+../Core/Motores/motor.c:244:6:habilitarMotores	0	static
+../Core/Motores/motor.c:256:6:estanMotoresHabilitados	0	static
+../Core/Motores/motor.c:268:6:estaMotorHabilitado	0	static
+../Core/Motores/motor.c:292:6:esProtocoloMotorDshot	0	static
+../Core/Motores/motor.c:304:6:escribirMotor	8	static
+../Core/Motores/motor.c:319:6:escribirMotores	8	static
+../Core/Motores/motor.c:340:6:escribirValorTodosMotores	40	static
+../Core/Motores/motor.c:361:6:actualizarMotores	8	static

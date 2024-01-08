@@ -1,0 +1,9 @@
+../Core/GP/config_flash.c:263:6:estructuraFlashConfigValida.part.0	16	static
+../Core/GP/config_flash.c:126:6:cargarConfigFlash	32	static
+../Core/GP/config_flash.c:165:6:versionValidaConfigFlash	0	static
+../Core/GP/config_flash.c:207:6:escribirAjustesEnFlash	72	static
+../Core/GP/config_flash.c:183:6:escribirConfigEnFlash	8	static
+../Core/GP/config_flash.c:152:6:resetearConfigFlash	8	static
+../Core/GP/config_flash.c:104:6:iniciarConfigFlash	16	static
+../Core/GP/config_flash.c:263:6:estructuraFlashConfigValida	0	static
+../Core/GP/config_flash.c:311:25:encontrarRegFlashConfig	8	static

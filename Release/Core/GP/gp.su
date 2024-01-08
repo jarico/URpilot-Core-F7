@@ -1,0 +1,7 @@
+../Core/GP/gp.c:65:21:encontrarGP	0	static
+../Core/GP/gp.c:81:6:cargarGP	32	static
+../Core/GP/gp.c:101:10:guardarGP	8	static
+../Core/GP/gp.c:115:6:resetearTodosGP	32	static
+../Core/GP/gp.c:129:6:resetearGP	16	static
+../Core/GP/gp.c:141:6:resetearInstanciaGP	16	static
+../Core/GP/gp.c:159:10:offsetGP	0	static

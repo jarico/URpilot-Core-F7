@@ -1,0 +1,5 @@
+../Core/Drivers/timer.c:69:8:punteroTim	0	static
+../Core/Drivers/timer.c:81:13:punteroTimer	0	static
+../Core/Drivers/timer.c:93:6:iniciarTimer	32	static
+../Core/Drivers/timer.c:158:6:timerUsado	0	static
+../Core/Drivers/timer.c:176:8:timerPorTag	4	static

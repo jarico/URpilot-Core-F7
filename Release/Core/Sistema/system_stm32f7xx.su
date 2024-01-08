@@ -1,0 +1,7 @@
+../Core/Sistema/system_stm32f7xx.c:112:6:iniciarITCMram	24	static
+../Core/Sistema/system_stm32f7xx.c:149:6:iniciarSRAM2	0	static
+../Core/Sistema/system_stm32f7xx.c:167:6:iniciarDTCMram	16	static
+../Core/Sistema/system_stm32f7xx.c:253:6:resetearSiOverclock	4	static,ignoring_inline_asm
+../Core/Sistema/system_stm32f7xx.c:276:6:iniciarSistemaOverclock	24	static
+../Core/Sistema/system_stm32f7xx.c:306:6:configurarRelojSistema	256	static
+../Core/Sistema/system_stm32f7xx.c:187:6:SystemInit	40	static,ignoring_inline_asm

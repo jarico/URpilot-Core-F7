@@ -1,0 +1,7 @@
+../Core/Version/version.c:74:6:iniciarVersion	8	static
+../Core/Version/version.c:103:7:horaCompilacionFirm	0	static
+../Core/Version/version.c:115:7:diaCompilacionFirm	0	static
+../Core/Version/version.c:127:9:versionHW	0	static
+../Core/Version/version.c:139:9:revisionHW	0	static
+../Core/Version/version.c:151:9:calcularVersionPlaca	8	static
+../Core/Version/version.c:168:9:calcularRevisionPlaca	8	static

@@ -1,0 +1,7 @@
+../Core/Drivers/uart.c:68:9:punteroUART	0	static
+../Core/Drivers/uart.c:80:6:iniciarUART	40	static
+../Core/Drivers/uart.c:118:6:uartIniciada	0	static
+../Core/Drivers/uart.c:130:6:ajustarBaudRateUART	4	static
+../Core/Drivers/uart.c:151:6:errorCallbackUART	0	static
+../Core/Drivers/uart.c:163:10:contadorErrorUART	0	static
+../Core/Drivers/uart.c:175:6:resetearContadorErrorUART	0	static

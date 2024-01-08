@@ -1,0 +1,12 @@
+../Core/Drivers/rtc_hal.c:139:6:esPrimerArranqueRTChw	8	static
+../Core/Drivers/rtc_hal.c:154:6:escribirBackupRTChw	0	static
+../Core/Drivers/rtc_hal.c:168:10:leerBackupRTChw	0	static
+../Core/Drivers/rtc_hal.c:182:6:fechaRTChw	8	static
+../Core/Drivers/rtc_hal.c:199:6:horaRTChw	8	static
+../Core/Drivers/rtc_hal.c:216:6:ajustarFechaRTChw	8	static
+../Core/Drivers/rtc_hal.c:233:6:ajustarHoraRTChw	8	static
+../Core/Drivers/rtc_hal.c:250:6:ajustarFechaHoraPorDefectoRTChw	32	static
+../Core/Drivers/rtc_hal.c:95:6:iniciarDispositivoRTChw	32	static
+../Core/Drivers/rtc_hal.c:268:6:ajustarFechaHoraRTChw	56	static
+../Core/Drivers/rtc_hal.c:287:6:convertirFechaUnixAhw	16	static
+../Core/Drivers/rtc_hal.c:305:6:convertirFechaHWAunix	16	static

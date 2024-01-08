@@ -1,0 +1,6 @@
+../Core/Drivers/spi.c:68:8:punteroSPI	0	static
+../Core/Drivers/spi.c:80:6:iniciarSPI	24	static
+../Core/Drivers/spi.c:114:6:spiIniciado	0	static
+../Core/Drivers/spi.c:126:6:errorCallbackSPI	0	static
+../Core/Drivers/spi.c:138:10:contadorErrorSPI	0	static
+../Core/Drivers/spi.c:150:6:resetearContadorErrorSPI	0	static

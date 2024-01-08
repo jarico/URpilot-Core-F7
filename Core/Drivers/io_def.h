@@ -1,0 +1,167 @@
+/***************************************************************************************
+**  io_def.h - Definiciones de los puertos IO
+**
+**
+**  Este fichero forma parte del proyecto URpilot.
+**  Codigo desarrollado por el grupo de investigacion ICON de la Universidad de La Rioja
+**
+**  Autor: Ramon Rico
+**  Fecha de creacion: 06/05/2019
+**  Fecha de modificacion: 03/08/2020
+**
+**  El proyecto URpilot NO es libre. No se puede distribuir y/o modificar este fichero
+**  bajo ningun concepto.
+**
+**  En caso de modificacion y/o solicitud de informacion pongase en contacto con
+**  el grupo de investigacion ICON a traves de: www.unirioja.es/urpilot
+**
+**
+**  Control de versiones del fichero
+**
+**  v1.0  Ramon Rico. Se ha liberado la primera version estable
+**
+****************************************************************************************/
+
+#ifndef __IO_DEF_H
+#define __IO_DEF_H
+
+/***************************************************************************************
+** AREA DE INCLUDES                                                                   **
+****************************************************************************************/
+
+
+/***************************************************************************************
+** AREA DE PREPROCESADOR                                                              **
+****************************************************************************************/
+#define GENERAR_TAG(gpioid, pin)     ((uint8_t)((gpioid << 4) | (pin)))
+
+// DEFIO_GPIOID__<puerto> mapea al indice del puerto
+#define DEFIO_GPIOID__A 1
+#define DEFIO_GPIOID__B 2
+#define DEFIO_GPIOID__C 3
+#define DEFIO_GPIOID__D 4
+#define DEFIO_GPIOID__E 5
+#define DEFIO_GPIOID__F 6
+#define DEFIO_GPIOID__G 7
+
+// DEFIO_TAG__P<puerto><pin> se utiliza para dar un valor a cada pin
+#define DEFIO_TAG__PA0  GENERAR_TAG(DEFIO_GPIOID__A, 0)
+#define DEFIO_TAG__PA1  GENERAR_TAG(DEFIO_GPIOID__A, 1)
+#define DEFIO_TAG__PA2  GENERAR_TAG(DEFIO_GPIOID__A, 2)
+#define DEFIO_TAG__PA3  GENERAR_TAG(DEFIO_GPIOID__A, 3)
+#define DEFIO_TAG__PA4  GENERAR_TAG(DEFIO_GPIOID__A, 4)
+#define DEFIO_TAG__PA5  GENERAR_TAG(DEFIO_GPIOID__A, 5)
+#define DEFIO_TAG__PA6  GENERAR_TAG(DEFIO_GPIOID__A, 6)
+#define DEFIO_TAG__PA7  GENERAR_TAG(DEFIO_GPIOID__A, 7)
+#define DEFIO_TAG__PA8  GENERAR_TAG(DEFIO_GPIOID__A, 8)
+#define DEFIO_TAG__PA9  GENERAR_TAG(DEFIO_GPIOID__A, 9)
+#define DEFIO_TAG__PA10 GENERAR_TAG(DEFIO_GPIOID__A, 10)
+#define DEFIO_TAG__PA11 GENERAR_TAG(DEFIO_GPIOID__A, 11)
+#define DEFIO_TAG__PA12 GENERAR_TAG(DEFIO_GPIOID__A, 12)
+#define DEFIO_TAG__PA13 GENERAR_TAG(DEFIO_GPIOID__A, 13)
+#define DEFIO_TAG__PA14 GENERAR_TAG(DEFIO_GPIOID__A, 14)
+#define DEFIO_TAG__PA15 GENERAR_TAG(DEFIO_GPIOID__A, 15)
+
+#define DEFIO_TAG__PB0  GENERAR_TAG(DEFIO_GPIOID__B, 0)
+#define DEFIO_TAG__PB1  GENERAR_TAG(DEFIO_GPIOID__B, 1)
+#define DEFIO_TAG__PB2  GENERAR_TAG(DEFIO_GPIOID__B, 2)
+#define DEFIO_TAG__PB3  GENERAR_TAG(DEFIO_GPIOID__B, 3)
+#define DEFIO_TAG__PB4  GENERAR_TAG(DEFIO_GPIOID__B, 4)
+#define DEFIO_TAG__PB5  GENERAR_TAG(DEFIO_GPIOID__B, 5)
+#define DEFIO_TAG__PB6  GENERAR_TAG(DEFIO_GPIOID__B, 6)
+#define DEFIO_TAG__PB7  GENERAR_TAG(DEFIO_GPIOID__B, 7)
+#define DEFIO_TAG__PB8  GENERAR_TAG(DEFIO_GPIOID__B, 8)
+#define DEFIO_TAG__PB9  GENERAR_TAG(DEFIO_GPIOID__B, 9)
+#define DEFIO_TAG__PB10 GENERAR_TAG(DEFIO_GPIOID__B, 10)
+#define DEFIO_TAG__PB11 GENERAR_TAG(DEFIO_GPIOID__B, 11)
+#define DEFIO_TAG__PB12 GENERAR_TAG(DEFIO_GPIOID__B, 12)
+#define DEFIO_TAG__PB13 GENERAR_TAG(DEFIO_GPIOID__B, 13)
+#define DEFIO_TAG__PB14 GENERAR_TAG(DEFIO_GPIOID__B, 14)
+#define DEFIO_TAG__PB15 GENERAR_TAG(DEFIO_GPIOID__B, 15)
+
+#define DEFIO_TAG__PC0  GENERAR_TAG(DEFIO_GPIOID__C, 0)
+#define DEFIO_TAG__PC1  GENERAR_TAG(DEFIO_GPIOID__C, 1)
+#define DEFIO_TAG__PC2  GENERAR_TAG(DEFIO_GPIOID__C, 2)
+#define DEFIO_TAG__PC3  GENERAR_TAG(DEFIO_GPIOID__C, 3)
+#define DEFIO_TAG__PC4  GENERAR_TAG(DEFIO_GPIOID__C, 4)
+#define DEFIO_TAG__PC5  GENERAR_TAG(DEFIO_GPIOID__C, 5)
+#define DEFIO_TAG__PC6  GENERAR_TAG(DEFIO_GPIOID__C, 6)
+#define DEFIO_TAG__PC7  GENERAR_TAG(DEFIO_GPIOID__C, 7)
+#define DEFIO_TAG__PC8  GENERAR_TAG(DEFIO_GPIOID__C, 8)
+#define DEFIO_TAG__PC9  GENERAR_TAG(DEFIO_GPIOID__C, 9)
+#define DEFIO_TAG__PC10 GENERAR_TAG(DEFIO_GPIOID__C, 10)
+#define DEFIO_TAG__PC11 GENERAR_TAG(DEFIO_GPIOID__C, 11)
+#define DEFIO_TAG__PC12 GENERAR_TAG(DEFIO_GPIOID__C, 12)
+#define DEFIO_TAG__PC13 GENERAR_TAG(DEFIO_GPIOID__C, 13)
+#define DEFIO_TAG__PC14 GENERAR_TAG(DEFIO_GPIOID__C, 14)
+#define DEFIO_TAG__PC15 GENERAR_TAG(DEFIO_GPIOID__C, 15)
+
+#define DEFIO_TAG__PD0  GENERAR_TAG(DEFIO_GPIOID__D, 0)
+#define DEFIO_TAG__PD1  GENERAR_TAG(DEFIO_GPIOID__D, 1)
+#define DEFIO_TAG__PD2  GENERAR_TAG(DEFIO_GPIOID__D, 2)
+#define DEFIO_TAG__PD3  GENERAR_TAG(DEFIO_GPIOID__D, 3)
+#define DEFIO_TAG__PD4  GENERAR_TAG(DEFIO_GPIOID__D, 4)
+#define DEFIO_TAG__PD5  GENERAR_TAG(DEFIO_GPIOID__D, 5)
+#define DEFIO_TAG__PD6  GENERAR_TAG(DEFIO_GPIOID__D, 6)
+#define DEFIO_TAG__PD7  GENERAR_TAG(DEFIO_GPIOID__D, 7)
+#define DEFIO_TAG__PD8  GENERAR_TAG(DEFIO_GPIOID__D, 8)
+#define DEFIO_TAG__PD9  GENERAR_TAG(DEFIO_GPIOID__D, 9)
+#define DEFIO_TAG__PD10 GENERAR_TAG(DEFIO_GPIOID__D, 10)
+#define DEFIO_TAG__PD11 GENERAR_TAG(DEFIO_GPIOID__D, 11)
+#define DEFIO_TAG__PD12 GENERAR_TAG(DEFIO_GPIOID__D, 12)
+#define DEFIO_TAG__PD13 GENERAR_TAG(DEFIO_GPIOID__D, 13)
+#define DEFIO_TAG__PD14 GENERAR_TAG(DEFIO_GPIOID__D, 14)
+#define DEFIO_TAG__PD15 GENERAR_TAG(DEFIO_GPIOID__D, 15)
+
+#define DEFIO_TAG__PE0  GENERAR_TAG(DEFIO_GPIOID__E, 0)
+#define DEFIO_TAG__PE1  GENERAR_TAG(DEFIO_GPIOID__E, 1)
+#define DEFIO_TAG__PE2  GENERAR_TAG(DEFIO_GPIOID__E, 2)
+#define DEFIO_TAG__PE3  GENERAR_TAG(DEFIO_GPIOID__E, 3)
+#define DEFIO_TAG__PE4  GENERAR_TAG(DEFIO_GPIOID__E, 4)
+#define DEFIO_TAG__PE5  GENERAR_TAG(DEFIO_GPIOID__E, 5)
+#define DEFIO_TAG__PE6  GENERAR_TAG(DEFIO_GPIOID__E, 6)
+#define DEFIO_TAG__PE7  GENERAR_TAG(DEFIO_GPIOID__E, 7)
+#define DEFIO_TAG__PE8  GENERAR_TAG(DEFIO_GPIOID__E, 8)
+#define DEFIO_TAG__PE9  GENERAR_TAG(DEFIO_GPIOID__E, 9)
+#define DEFIO_TAG__PE10 GENERAR_TAG(DEFIO_GPIOID__E, 10)
+#define DEFIO_TAG__PE11 GENERAR_TAG(DEFIO_GPIOID__E, 11)
+#define DEFIO_TAG__PE12 GENERAR_TAG(DEFIO_GPIOID__E, 12)
+#define DEFIO_TAG__PE13 GENERAR_TAG(DEFIO_GPIOID__E, 13)
+#define DEFIO_TAG__PE14 GENERAR_TAG(DEFIO_GPIOID__E, 14)
+#define DEFIO_TAG__PE15 GENERAR_TAG(DEFIO_GPIOID__E, 15)
+
+#define DEFIO_TAG__PF0  GENERAR_TAG(DEFIO_GPIOID__F, 0)
+#define DEFIO_TAG__PF1  GENERAR_TAG(DEFIO_GPIOID__F, 1)
+#define DEFIO_TAG__PF2  GENERAR_TAG(DEFIO_GPIOID__F, 2)
+#define DEFIO_TAG__PF3  GENERAR_TAG(DEFIO_GPIOID__F, 3)
+#define DEFIO_TAG__PF4  GENERAR_TAG(DEFIO_GPIOID__F, 4)
+#define DEFIO_TAG__PF5  GENERAR_TAG(DEFIO_GPIOID__F, 5)
+#define DEFIO_TAG__PF6  GENERAR_TAG(DEFIO_GPIOID__F, 6)
+#define DEFIO_TAG__PF7  GENERAR_TAG(DEFIO_GPIOID__F, 7)
+#define DEFIO_TAG__PF8  GENERAR_TAG(DEFIO_GPIOID__F, 8)
+#define DEFIO_TAG__PF9  GENERAR_TAG(DEFIO_GPIOID__F, 9)
+#define DEFIO_TAG__PF10 GENERAR_TAG(DEFIO_GPIOID__F, 10)
+#define DEFIO_TAG__PF11 GENERAR_TAG(DEFIO_GPIOID__F, 11)
+#define DEFIO_TAG__PF12 GENERAR_TAG(DEFIO_GPIOID__F, 12)
+#define DEFIO_TAG__PF13 GENERAR_TAG(DEFIO_GPIOID__F, 13)
+#define DEFIO_TAG__PF14 GENERAR_TAG(DEFIO_GPIOID__F, 14)
+#define DEFIO_TAG__PF15 GENERAR_TAG(DEFIO_GPIOID__F, 15)
+
+#define DEFIO_TAG__PG0  GENERAR_TAG(DEFIO_GPIOID__G, 0)
+#define DEFIO_TAG__PG1  GENERAR_TAG(DEFIO_GPIOID__G, 1)
+#define DEFIO_TAG__PG2  GENERAR_TAG(DEFIO_GPIOID__G, 2)
+#define DEFIO_TAG__PG3  GENERAR_TAG(DEFIO_GPIOID__G, 3)
+#define DEFIO_TAG__PG4  GENERAR_TAG(DEFIO_GPIOID__G, 4)
+#define DEFIO_TAG__PG5  GENERAR_TAG(DEFIO_GPIOID__G, 5)
+#define DEFIO_TAG__PG6  GENERAR_TAG(DEFIO_GPIOID__G, 6)
+#define DEFIO_TAG__PG7  GENERAR_TAG(DEFIO_GPIOID__G, 7)
+#define DEFIO_TAG__PG8  GENERAR_TAG(DEFIO_GPIOID__G, 8)
+#define DEFIO_TAG__PG9  GENERAR_TAG(DEFIO_GPIOID__G, 9)
+#define DEFIO_TAG__PG10 GENERAR_TAG(DEFIO_GPIOID__G, 10)
+#define DEFIO_TAG__PG11 GENERAR_TAG(DEFIO_GPIOID__G, 11)
+#define DEFIO_TAG__PG12 GENERAR_TAG(DEFIO_GPIOID__G, 12)
+#define DEFIO_TAG__PG13 GENERAR_TAG(DEFIO_GPIOID__G, 13)
+#define DEFIO_TAG__PG14 GENERAR_TAG(DEFIO_GPIOID__G, 14)
+#define DEFIO_TAG__PG15 GENERAR_TAG(DEFIO_GPIOID__G, 15)
+
+#endif // __IO_DEF_H

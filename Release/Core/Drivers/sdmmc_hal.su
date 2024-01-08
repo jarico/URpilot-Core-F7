@@ -1,0 +1,14 @@
+../Core/Drivers/sdmmc_hal.c:74:6:iniciarDriverSDMMC	56	static
+../Core/Drivers/sdmmc_hal.c:170:6:iniciarTarjetaSDMMC	8	static
+../Core/Drivers/sdmmc_hal.c:211:11:leerInfoSDMMC	16	static
+../Core/Drivers/sdmmc_hal.c:416:6:estadoSDMMC	8	static
+../Core/Drivers/sdmmc_hal.c:431:10:chequearEscrituraSDMMC	8	static
+../Core/Drivers/sdmmc_hal.c:448:10:chequearLecturaSDMMC	8	static
+../Core/Drivers/sdmmc_hal.c:465:25:escribirBloquesSDMMC	24	static,ignoring_inline_asm
+../Core/Drivers/sdmmc_hal.c:496:25:leerBloquesSDMMC	16	static
+../Core/Drivers/sdmmc_hal.c:528:6:HAL_SD_TxCpltCallback	8	static
+../Core/Drivers/sdmmc_hal.c:543:6:HAL_SD_RxCpltCallback	8	static,ignoring_inline_asm
+../Core/Drivers/sdmmc_hal.c:561:6:HAL_SD_AbortCallback	8	static
+../Core/Drivers/sdmmc_hal.c:578:6:SDMMC1_IRQHandler	8	static
+../Core/Drivers/sdmmc_hal.c:591:6:SDMMC2_IRQHandler	8	static
+../Core/Drivers/sdmmc_hal.c:604:6:habilitarRelojSDMMC	8	static

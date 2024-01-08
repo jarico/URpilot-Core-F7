@@ -1,0 +1,9 @@
+../Core/Drivers/adc_hal.c:212:6:habilitarRelojADC	16	static
+../Core/Drivers/adc_hal.c:239:6:configurarDriverADC	8	static
+../Core/Drivers/adc_hal.c:268:6:iniciarInyectadoADCinterno	48	static
+../Core/Drivers/adc_hal.c:113:6:iniciarDriverADC	72	static
+../Core/Drivers/adc_hal.c:324:6:adcIternoOcupado	8	static
+../Core/Drivers/adc_hal.c:343:6:iniciarConversionADCinterno	8	static
+../Core/Drivers/adc_hal.c:358:10:leerVrefADCinterno	8	static
+../Core/Drivers/adc_hal.c:371:10:leerTempADCinterno	8	static
+../Core/Drivers/adc_hal.c:384:6:leerADCinterno	24	static

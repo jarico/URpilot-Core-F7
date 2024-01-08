@@ -1,0 +1,8 @@
+../Core/Drivers/flash.c:78:6:resetearGrabadorFlash	0	static
+../Core/Drivers/flash.c:90:9:estadoGrabadorFlash	0	static
+../Core/Drivers/flash.c:102:6:desbloquearGrabadorFlash	8	static
+../Core/Drivers/flash.c:121:9:bloquearGrabadorFlash	8	static
+../Core/Drivers/flash.c:137:9:escribirGrabadorFlash	64	static
+../Core/Drivers/flash.c:157:9:flushGrabadorFlash	48	static
+../Core/Drivers/flash.c:191:10:sectorParaConfigGrabadorFlash	8	static
+../Core/Drivers/flash.c:275:9:escribirWordGrabadorFlash	48	static

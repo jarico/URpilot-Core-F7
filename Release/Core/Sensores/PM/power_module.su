@@ -1,0 +1,12 @@
+../Core/Sensores/PM/power_module.c:100:6:iniciarPowerModule	40	static
+../Core/Sensores/PM/power_module.c:177:6:leerPowerModule	48	static
+../Core/Sensores/PM/power_module.c:210:6:leerDriverPowerModule	24	static
+../Core/Sensores/PM/power_module.c:307:6:leerPowerModuleAnalogico	40	static
+../Core/Sensores/PM/power_module.c:282:6:actualizarDriverPowerModule	16	static
+../Core/Sensores/PM/power_module.c:265:6:actualizarPowerModule	16	static
+../Core/Sensores/PM/power_module.c:347:6:acumularLecturasPowerModule	0	static
+../Core/Sensores/PM/power_module.c:365:6:actualizarPowerModuleOperativo	8	static
+../Core/Sensores/PM/power_module.c:385:7:tensionPowerModule	0	static
+../Core/Sensores/PM/power_module.c:397:7:corrientePowerModule	0	static
+../Core/Sensores/PM/power_module.c:409:7:potenciaPowerModule	0	static
+../Core/Sensores/PM/power_module.c:421:7:energiaPowerModule	0	static

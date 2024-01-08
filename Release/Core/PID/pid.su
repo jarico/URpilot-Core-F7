@@ -1,0 +1,3 @@
+../Core/PID/pid.c:63:6:iniciarPID	0	static
+../Core/PID/pid.c:82:7:actualizarPID	16	static
+../Core/PID/pid.c:105:6:resetearIntegralPID	0	static

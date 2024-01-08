@@ -1,0 +1,6 @@
+../Drivers/CMSIS/Include/core_cm7.h:2147:34:__NVIC_SystemReset	0	static,ignoring_inline_asm
+../Core/Drivers/reset.c:62:6:resetSistema	8	static,ignoring_inline_asm
+../Core/Drivers/reset.c:75:6:resetSistemaAlBootloader	8	static,ignoring_inline_asm
+../Core/Drivers/reset.c:91:6:chequearSolicitudBootLoader	24	static,ignoring_inline_asm
+../Core/Drivers/reset.c:124:6:rccCSR	0	static
+../Core/Drivers/reset.c:136:6:resetSoftware	0	static

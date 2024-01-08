@@ -1,0 +1,6 @@
+../Core/Drivers/adc_hardware.c:251:6:asignarHALadc	64	static
+../Core/Drivers/adc_hardware.c:298:6:verificarPinADC	4	static
+../Core/Drivers/adc_hardware.c:315:9:canalADC	4	static
+../Core/Drivers/adc_hardware.c:334:6:comprobarStreamDMAadc	0	static
+../Core/Drivers/adc_hardware.c:353:10:canalStreamDMAadc	4	static
+../Core/Drivers/adc_hardware.c:372:9:posicionPuertoADC	0	static

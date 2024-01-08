@@ -1,0 +1,5 @@
+../Core/Drivers/io.c:103:6:habilitarRelojIO	32	static
+../Core/Drivers/io.c:73:6:configurarIO	48	static
+../Core/Drivers/io.c:150:6:escribirIO	0	static
+../Core/Drivers/io.c:165:6:leerIO	8	static
+../Core/Drivers/io.c:180:6:invertirIO	0	static

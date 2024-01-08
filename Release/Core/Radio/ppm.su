@@ -1,0 +1,6 @@
+../Core/Radio/ppm.c:137:6:overflowCallbackPPM	0	static
+../Core/Radio/ppm.c:241:6:leerPPM	0	static
+../Core/Radio/ppm.c:153:6:edgeCallbackPPM	16	static
+../Core/Radio/ppm.c:102:6:iniciarPPM	32	static
+../Core/Radio/ppm.c:229:10:leerCanalPPM	0	static
+../Core/Radio/ppm.c:253:6:resetearPPM	0	static

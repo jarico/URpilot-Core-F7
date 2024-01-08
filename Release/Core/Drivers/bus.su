@@ -1,0 +1,6 @@
+../Core/Drivers/bus.c:65:20:busOcupado	0	static
+../Core/Drivers/bus.c:93:20:drenarRecepcionBus	8	static
+../Core/Drivers/bus.c:121:20:escribirRegistroBus	24	static
+../Core/Drivers/bus.c:139:20:escribirBufferRegistroBus	24	static
+../Core/Drivers/bus.c:173:20:leerRegistroBus	16	static
+../Core/Drivers/bus.c:190:20:leerBufferRegistroBus	24	static

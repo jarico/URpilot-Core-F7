@@ -1,0 +1,10 @@
+../Core/Sensores/Magnetometro/mag_honeywell.c:135:6:iniciarMagHoneywell	40	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:326:6:leerMagHoneywell	32	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:356:6:actualizarMagHoneywell	48	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:219:6:calibrarMagHoneywell	72	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:167:6:iniciarBusMagHoneywell	16	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:183:6:chequearIdMagHoneywell	16	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:203:6:configurarMagHoneywell	8	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:298:6:leerAdcMagHoneywell	24	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:393:6:datoDisponibleMagHoneywell	16	static
+../Core/Sensores/Magnetometro/mag_honeywell.c:415:6:calcularMagHoneywell	16	static

@@ -1,0 +1,11 @@
+../Core/Comun/matriz.c:68:6:sumarMatrices	4	static
+../Core/Comun/matriz.c:83:6:restarMatrices	4	static
+../Core/Comun/matriz.c:98:6:multiplicarEscalarMatriz	0	static
+../Core/Comun/matriz.c:113:6:multiplicarMatrices	16	static
+../Core/Comun/matriz.c:130:6:traspuestaMatriz	4	static
+../Core/Comun/matriz.c:145:6:inversaMatriz	1744	static
+../Core/Comun/matriz.c:216:6:copiarMatriz	24	static
+../Core/Comun/matriz.c:231:6:resetearMatriz	16	static
+../Core/Comun/matriz.c:246:6:asignarIdentidadMatriz	24	static
+../Core/Comun/matriz.c:261:13:intercambiarFilas	16	static
+../Core/Comun/matriz.c:280:13:intercambiarColumnas	4	static

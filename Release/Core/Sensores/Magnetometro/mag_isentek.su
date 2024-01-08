@@ -1,0 +1,11 @@
+../Core/Sensores/Magnetometro/mag_isentek.c:253:6:calibrarMagIsentek	0	static
+../Core/Sensores/Magnetometro/mag_isentek.c:311:6:leerMagIsentek	32	static
+../Core/Sensores/Magnetometro/mag_isentek.c:341:6:actualizarMagIsentek	48	static
+../Core/Sensores/Magnetometro/mag_isentek.c:135:6:iniciarMagIsentek	40	static
+../Core/Sensores/Magnetometro/mag_isentek.c:173:6:iniciarBusMagIsentek	16	static
+../Core/Sensores/Magnetometro/mag_isentek.c:189:6:chequearIdMagIsentek	16	static
+../Core/Sensores/Magnetometro/mag_isentek.c:209:6:resetearMagIsentek	24	static
+../Core/Sensores/Magnetometro/mag_isentek.c:238:6:configurarMagIsentek	8	static
+../Core/Sensores/Magnetometro/mag_isentek.c:266:6:iniciarConversionMagIsentek	8	static
+../Core/Sensores/Magnetometro/mag_isentek.c:279:6:leerAdcMagIsentek	24	static
+../Core/Sensores/Magnetometro/mag_isentek.c:377:6:calcularMagIsentek	16	static

@@ -1,0 +1,13 @@
+../Core/Radio/radio.c:79:6:iniciarRadio	16	static
+../Core/Radio/radio.c:132:6:iniciarDriverRadio	0	static
+../Core/Radio/radio.c:147:6:leerRadio	16	static
+../Core/Radio/radio.c:171:6:anadirRecepcionRadio	8	static
+../Core/Radio/radio.c:187:6:nuevaRecepcionRadio	0	static
+../Core/Radio/radio.c:203:6:actualizarFailsafeRadio	8	static
+../Core/Radio/radio.c:236:6:radioOperativa	0	static
+../Core/Radio/radio.c:248:6:radioEnFailsafe	0	static
+../Core/Radio/radio.c:260:6:activarFailsafeRadio	0	static
+../Core/Radio/radio.c:272:6:desactivarFailsafeRadio	0	static
+../Core/Radio/radio.c:284:6:nuevaEntradaRadioValida	0	static
+../Core/Radio/radio.c:296:10:canalRadio	0	static
+../Core/Radio/radio.c:311:6:canalesRadio	0	static

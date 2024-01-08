@@ -1,0 +1,8 @@
+../Core/Drivers/i2c_bus.c:64:6:ocupadoBusI2C	0	static
+../Core/Drivers/i2c_bus.c:76:6:drenarRecepcionBusI2C	0	static
+../Core/Drivers/i2c_bus.c:88:6:escribirBusI2C	0	static
+../Core/Drivers/i2c_bus.c:100:6:escribirRegistroBusI2C	0	static
+../Core/Drivers/i2c_bus.c:112:6:escribirBufferRegistroBusI2C	16	static
+../Core/Drivers/i2c_bus.c:124:6:leerBusI2C	0	static
+../Core/Drivers/i2c_bus.c:136:6:leerRegistroBusI2C	0	static
+../Core/Drivers/i2c_bus.c:148:6:leerBufferRegistroBusI2C	16	static

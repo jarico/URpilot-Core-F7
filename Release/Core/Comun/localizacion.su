@@ -1,0 +1,4 @@
+../Core/Comun/localizacion.c:72:13:distanciaNE	32	static
+../Core/Comun/localizacion.c:85:13:distanciaNED	40	static
+../Core/Comun/localizacion.c:99:13:anadirOffsetLoc	32	static
+../Core/Comun/localizacion.c:115:14:escalaLongitud	8	static

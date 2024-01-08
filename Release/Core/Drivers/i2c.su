@@ -1,0 +1,6 @@
+../Core/Drivers/i2c.c:68:8:punteroI2C	0	static
+../Core/Drivers/i2c.c:80:6:iniciarI2C	24	static
+../Core/Drivers/i2c.c:114:6:i2cIniciado	0	static
+../Core/Drivers/i2c.c:126:6:errorCallbackI2C	0	static
+../Core/Drivers/i2c.c:138:10:contadorErrorI2C	0	static
+../Core/Drivers/i2c.c:150:6:resetearContadorErrorI2C	0	static

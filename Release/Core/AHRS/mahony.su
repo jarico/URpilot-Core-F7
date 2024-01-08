@@ -1,0 +1,6 @@
+../Core/AHRS/mahony.c:87:6:iniciarMahony	16	static
+../Core/AHRS/mahony.c:224:6:actualizarSinMagMahony	32	static
+../Core/AHRS/mahony.c:259:6:actualizarControladorMahony	16	static
+../Core/AHRS/mahony.c:314:6:actualizarCuaternionMahony	0	static
+../Core/AHRS/mahony.c:163:6:actualizarConMagMahony	72	static
+../Core/AHRS/mahony.c:114:6:actualizarMahony	88	static

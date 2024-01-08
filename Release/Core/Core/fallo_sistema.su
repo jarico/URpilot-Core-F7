@@ -1,0 +1,3 @@
+../Core/Core/fallo_sistema.c:70:6:falloSistema	32	static
+../Core/Core/fallo_sistema.c:83:6:indicarFallo	32	static
+../Core/Core/fallo_sistema.c:162:6:secuenciaFallo	24	static

@@ -1,0 +1,3 @@
+../Core/Comun/crc.c:62:10:calcularCRC4	0	static
+../Core/Comun/crc.c:92:10:actualizarCRC16	0	static
+../Core/Comun/crc.c:113:10:calcularCRC16	4	static

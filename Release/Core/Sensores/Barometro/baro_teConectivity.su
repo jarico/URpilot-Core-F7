@@ -1,0 +1,9 @@
+../Core/Sensores/Barometro/baro_teConectivity.c:263:6:actualizarBaroTEConectivity	40	static
+../Core/Sensores/Barometro/baro_teConectivity.c:105:6:iniciarBaroTEConectivity	56	static
+../Core/Sensores/Barometro/baro_teConectivity.c:141:6:iniciarBusBaroTEConectivity	16	static
+../Core/Sensores/Barometro/baro_teConectivity.c:157:6:resetearBaroTEConectivity	8	static
+../Core/Sensores/Barometro/baro_teConectivity.c:170:6:leerPromBaroTEConectivity	32	static
+../Core/Sensores/Barometro/baro_teConectivity.c:191:6:leerWordPromBaroTEConectivity	16	static
+../Core/Sensores/Barometro/baro_teConectivity.c:210:6:leerAdcBaroTEConectivity	16	static
+../Core/Sensores/Barometro/baro_teConectivity.c:310:6:calcularBaroTEConectivity	16	static
+../Core/Sensores/Barometro/baro_teConectivity.c:228:6:leerBaroTEConectivity	8	static
