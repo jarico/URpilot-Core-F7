@@ -37,7 +37,7 @@
 /***************************************************************************************
 ** AREA DE PREPROCESADOR                                                              **
 ****************************************************************************************/
-
+#define CONTROL_MODEL_MATCHING
 
 /***************************************************************************************
 ** AREA DE DEFINICION DE TIPOS                                                        **
@@ -72,7 +72,11 @@ bool iniciarFC(void)
     ajustarFrecuenciaEjecucionTarea(TAREA_ACTUALIZAR_ACTITUD_FC, PERIODO_TAREA_HZ_SCHEDULER(configFC()->frecLazoActitud));
     ajustarFrecuenciaEjecucionTarea(TAREA_ACTUALIZAR_POSICION_FC, PERIODO_TAREA_HZ_SCHEDULER(configFC()->frecLazoPosicion));
 
+#ifdef CONTROL_MODEL_MATCHING
+    iniciarControladoresMM();
+#else
     iniciarControladores();
+#endif
     return true;
 }
 
@@ -86,13 +90,16 @@ bool iniciarFC(void)
 CODIGO_RAPIDO void actualizarLazoVelAngularFC(uint32_t tiempoActual)
 {
 
-
-
-
 //#ifndef LEER_IMU_SCHEDULER
 	//leerIMU(tiempoActual);
 //#endif
+
+#ifdef CONTROL_MODEL_MATCHING
+	actualizarControlVelAngularMM();
+#else
 	actualizarControlVelAngular();
+#endif
+
     actualizarMixer();
 }
 
@@ -114,13 +121,15 @@ extern uint32_t rTime1;
 ****************************************************************************************/
 void actualizarLazoActitudFC(uint32_t tiempoActual)
 {
-    UNUSED(tiempoActual);
 
+UNUSED(tiempoActual);
     actualizarActitudAHRS();
+
+#ifdef CONTROL_MODEL_MATCHING
+    actualizarControlActitudMM();
+#else
     actualizarControlActitud();
-
-
-
+#endif
 
     if (reaction.id == 'A' && iniR) {
     	reaction.id = 'B';

@@ -97,9 +97,9 @@ void iniciarControladoresMM(void)
 	iniciarPID(&pidActitud_MM[0], 10, 20, 0.0, 0.0, 2000, 2000);
 	iniciarPID(&pidActitud_MM[1], 4, 0.0, 0.0, 0.0, 2000, 2000);
 
-    // Modelo unitario para pruebas
-    float denC[1] = {1.0};
-    float numC[1] = {1.0};
+    // Modelo de seguimiento
+    float denC[1] = {1.0000e-4, -1.9840e-4,	0.9841e-4};
+    float numC[1] = {0,			0.6496e-4,  0.6461e-4};
     int8_t n = sizeof(numC)/sizeof(float);
 
 	// Modelos para la actitud

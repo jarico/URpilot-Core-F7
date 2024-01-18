@@ -68,5 +68,6 @@ float uPitchPID(void);
 float uYawPID(void);
 float uAltPID(void);
 void uTotalPID(float *u);
+void actualizar_uPID(float *u);
 
 #endif // __CONTROL_H_

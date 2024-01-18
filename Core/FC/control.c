@@ -217,4 +217,19 @@ void uTotalPID(float *u)
 
 
 
+/***************************************************************************************
+**  Nombre:         void actualizar_uPID(float *u)
+**  Descripcion:    Actualiza las acciones de control generadas en el modo model matching
+**  Parametros:     Puntero a las acciones de control
+**  Retorno:        Ninguno
+****************************************************************************************/
+void actualizar_uPID(float *u)
+{
+	uint8_t i;
+    for (i=0; i < 3; i++){
+    	uPID[i]=u[i];
+    }
+}
+
+
 
