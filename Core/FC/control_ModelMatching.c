@@ -143,6 +143,8 @@ CODIGO_RAPIDO void actualizarControlVelAngularMM(void)
     uTotal_MM[0] = uFF_MM[0] + uPID_MM[0];
     uTotal_MM[1] = uFF_MM[1] + uPID_MM[1];
 
+    actualizarAccionControl(uTotal_MM);
+
     if (ordenPararMotores) {
         resetearIntegralPID(&pidVelAng_MM[0]);
         resetearIntegralPID(&pidVelAng_MM[1]);
