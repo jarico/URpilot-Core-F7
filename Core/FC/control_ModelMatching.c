@@ -98,10 +98,11 @@ void iniciarControladoresMM(void)
 	iniciarPID(&pidActitud_MM[1], 4, 0.0, 0.0, 0.0, 2000, 2000);
 
 	// Parámetros del modelo
-	float a1 = -1.9840;
-	float a0 = 0.9841;
-	float b0 = 1.296e-4;
+	float a1 = -1.983997748568082;
+	float a0 = 0.984127320055285;
+	float b0 = 1 + a1 + a0;
 	float Ts = 0.001;
+	float k  = 7.4674;
 
 	// Modelos para la actitud
     float denM[3] = {1, a1,	a0};
@@ -121,7 +122,7 @@ void iniciarControladoresMM(void)
 
 	// Controladores feedfordward
     float denG[3] = {1, a1,	a0};
-    float numG[3] = {0,	 0, 0};
+    float numG[3] = {k,-2*k, k};
 	iniciarControladorGenerico(&controladorFF_MM[0], numG, denG, n, 1.0, 100);
 	iniciarControladorGenerico(&controladorFF_MM[1], numG, denG, n, 1.0, 100);
 

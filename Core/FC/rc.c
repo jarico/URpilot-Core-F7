@@ -43,7 +43,7 @@
 ** AREA DE PREPROCESADOR                                                              **
 ****************************************************************************************/
 #define ANTIRREBOTE_MS     200
-
+#define REF_TELEMETRIA
 
 /***************************************************************************************
 ** AREA DE DEFINICION DE TIPOS                                                        **
@@ -72,7 +72,9 @@ static secuenciaRC_t secuenciaDesarmado;
 static secuenciaRC_t secuenciaCalibracion;
 static antirreboteModoRC_t antirreboteModo;
 static antirreboteModoRC_t antirreboteEstop;
-
+#ifdef REF_TELEMETRIA
+extern float DatosRecepcion[4];
+#endif
 
 /***************************************************************************************
 ** AREA DE PROTOTIPOS DE FUNCION                                                      **
@@ -323,6 +325,7 @@ bool comprobarPosicionStickRC(uint16_t ref, uint16_t stick)
 ****************************************************************************************/
 void generarRefRollPitchRC(void)
 {
+#ifndef REF_TELEMETRIA
 	canalRC_e canal = configRefRC()->roll.canalRC;
 
     if (canal == CANAL_NINGUNO)
@@ -338,6 +341,34 @@ void generarRefRollPitchRC(void)
 
     rc.pitch = convertirPWMaAnguloRC(canalRadio(canal), configRefRC()->pitch.valorMax, configCanalRC(canal)->valorMax, configCanalRC(canal)->valorMin,
     		                       configCanalRC(canal)->valorTrim, configCanalRC(canal)->zonaMuerta, configCanalRC(canal)->reverse);
+#else
+    canalRC_e canal = configRefRC()->roll.canalRC;
+
+   if (canal == CANAL_NINGUNO)
+	   return;
+
+   if (!DatosRecepcion[3]) {
+	   rc.roll = convertirPWMaAnguloRC(canalRadio(canal), configRefRC()->roll.valorMax, configCanalRC(canal)->valorMax, configCanalRC(canal)->valorMin,
+			   configCanalRC(canal)->valorTrim, configCanalRC(canal)->zonaMuerta, configCanalRC(canal)->reverse);
+   }
+   else {
+	   rc.roll = DatosRecepcion[0];
+   }
+
+   canal = configRefRC()->pitch.canalRC;
+
+   if (canal == CANAL_NINGUNO)
+	   return;
+
+   if (!DatosRecepcion[3]) {
+	   rc.pitch = convertirPWMaAnguloRC(canalRadio(canal), configRefRC()->pitch.valorMax, configCanalRC(canal)->valorMax, configCanalRC(canal)->valorMin,
+			   configCanalRC(canal)->valorTrim, configCanalRC(canal)->zonaMuerta, configCanalRC(canal)->reverse);
+   }
+   else {
+	rc.pitch = DatosRecepcion[1];
+   }
+#endif
+
 }
 
 

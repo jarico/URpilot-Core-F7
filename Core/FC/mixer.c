@@ -39,6 +39,7 @@
 /***************************************************************************************
 ** AREA DE PREPROCESADOR                                                              **
 ****************************************************************************************/
+//#define CALIBRAR_MOTORES
 
 
 /***************************************************************************************
@@ -64,6 +65,10 @@ static uint8_t cntMotores;
 static motorMixer_t mixer[NUM_MAX_MOTORES];
 static float motorMix[NUM_MAX_MOTORES];
 bool ordenPararMotores = true;
+#ifdef CALIBRAR_MOTORES
+bool calEnMarcha = false;
+uint32_t tIniCal = 0;
+#endif
 
 static const motorMixer_t mixerQuadX[] = {
     { 1.0f, -1.0f,  1.0f,  1.0f },          // Motor 1
@@ -230,6 +235,28 @@ void iniciarMixer(void)
 ****************************************************************************************/
 CODIGO_RAPIDO void actualizarMixer(void)
 {
+#ifdef CALIBRAR_MOTORES
+	if (calEnMarcha == false) {
+		calEnMarcha = true;
+		tIniCal = millis();
+	}
+
+	habilitarMotores();
+
+	if (millis() - tIniCal < 20000) {
+	    for (uint8_t i = 0; i < cntMotores; i++) {
+	    	motorMix[i] = 1.0;
+	    }
+	}
+	else {
+	    for (uint8_t i = 0; i < cntMotores; i++) {
+	    	motorMix[i] = 0.0;
+	    }
+	}
+
+	escribirMotores(motorMix);
+
+#else
 	/*
 	calcularTablaMixer();
     escribirMotores(motorMix);
@@ -258,7 +285,7 @@ CODIGO_RAPIDO void actualizarMixer(void)
         else
         	pararMotores();
     }
-
+#endif
 }
 
 

@@ -34,8 +34,8 @@
 /***************************************************************************************
 ** AREA DE PREPROCESADOR                                                              **
 ****************************************************************************************/
-#define FREC_FILTRO_ACEL_IMU        50.0f
-#define FREC_FILTRO_GIRO_IMU        50.0f
+#define FREC_FILTRO_ACEL_IMU        100.0f
+#define FREC_FILTRO_GIRO_IMU        100.0f
 
 #ifndef TIPO_IMU_1
   #define TIPO_IMU_1                IMU_NINGUNO
@@ -236,7 +236,7 @@
 /***************************************************************************************
 ** AREA DE DECLARACION DE VARIABLES                                                   **
 ****************************************************************************************/
-REGISTRAR_ARRAY_GP_CON_FN_RESET(configIMU_t, NUM_MAX_IMU, configIMU, GP_CONFIGURACION_IMU, 1);
+REGISTRAR_ARRAY_GP_CON_FN_RESET(configIMU_t, NUM_MAX_IMU, configIMU, GP_CONFIGURACION_IMU, 2);
 
 static const configIMU_t configIMUdefecto[] = {
     { TIPO_IMU_1, AUX_IMU_1, TIPO_BUS_IMU_1, DISP_BUS_IMU_1, DEFIO_TAG(CS_SPI_BUS_IMU_1), DIR_I2C_BUS_IMU_1, DEFIO_TAG(DRDY_IMU_1), FREC_FILTRO_ACEL_IMU, FREC_FILTRO_GIRO_IMU, {ROTACION_IMU_1, VOLTEADO_IMU_1}, FREC_ACTUALIZAR_IMU_HZ, FREC_LEER_IMU_HZ},

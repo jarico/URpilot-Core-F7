@@ -78,7 +78,9 @@ void iniciarControladores(void)
         //iniciarPID(&pidVelAng[i],  configPID()->pVelAng[i].kp, configPID()->pVelAng[i].ki, configPID()->pVelAng[i].kd,
         		                   //configPID()->pVelAng[i].kff, configPID()->pVelAng[i].limIntegral, configPID()->pVelAng[i].limSalida);
 
-        iniciarPID(&pidVelAng[0],  0.000425, 0.0005, 0.00002,  0.0, 0.5, 1);
+        iniciarPID(&pidVelAng[0],  0.0001, 0.0002, 0,  0.0, 0.5, 1);
+
+        //iniciarPID(&pidVelAng[0],  0.0001,  0.000000153, 0,  0.0, 0.5, 1);
         iniciarPID(&pidVelAng[1],  0.00119,  0.0014, 0.000056, 0.0, 0.5, 1);
 
         //iniciarPID(&pidActitud[i], configPID()->pActitud[i].kp, configPID()->pActitud[i].ki, configPID()->pActitud[i].kd,
