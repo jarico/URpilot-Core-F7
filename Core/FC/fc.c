@@ -30,6 +30,7 @@
 #include "Sensores/IMU/imu.h"
 #include "AHRS/ahrs.h"
 #include "control.h"
+#include "control_ModelMatching.h"
 #include "mixer.h"
 #include "Scheduler/scheduler.h"
 
@@ -37,7 +38,7 @@
 /***************************************************************************************
 ** AREA DE PREPROCESADOR                                                              **
 ****************************************************************************************/
-
+//#define MODEL_MATCHING
 
 /***************************************************************************************
 ** AREA DE DEFINICION DE TIPOS                                                        **
@@ -72,7 +73,11 @@ bool iniciarFC(void)
     ajustarFrecuenciaEjecucionTarea(TAREA_ACTUALIZAR_ACTITUD_FC, PERIODO_TAREA_HZ_SCHEDULER(configFC()->frecLazoActitud));
     ajustarFrecuenciaEjecucionTarea(TAREA_ACTUALIZAR_POSICION_FC, PERIODO_TAREA_HZ_SCHEDULER(configFC()->frecLazoPosicion));
 
+#ifdef MODEL_MATCHING
+    iniciarControladoresMM();
+#else
     iniciarControladores();
+#endif
     return true;
 }
 
@@ -85,14 +90,11 @@ bool iniciarFC(void)
 ****************************************************************************************/
 CODIGO_RAPIDO void actualizarLazoVelAngularFC(uint32_t tiempoActual)
 {
-
-
-
-
-//#ifndef LEER_IMU_SCHEDULER
-	//leerIMU(tiempoActual);
-//#endif
-	actualizarControlVelAngular();
+    #ifdef MODEL_MATCHING
+	    actualizarControlVelAngularMM();
+    #else
+	    actualizarControlVelAngular();
+    #endif
     actualizarMixer();
 }
 
@@ -114,13 +116,16 @@ extern uint32_t rTime1;
 ****************************************************************************************/
 void actualizarLazoActitudFC(uint32_t tiempoActual)
 {
-    UNUSED(tiempoActual);
+
+UNUSED(tiempoActual);
 
     actualizarActitudAHRS();
-    actualizarControlActitud();
 
-
-
+    #ifdef MODEL_MATCHING
+        actualizarControlActitudMM();
+    #else
+        actualizarControlActitud();
+    #endif
 
     if (reaction.id == 'A' && iniR) {
     	reaction.id = 'B';

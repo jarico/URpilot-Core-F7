@@ -33,6 +33,8 @@
 
 #ifdef USAR_IMU
 #include "Sensores/IMU/imu.h"
+#include "Sensores/Magnetometro/magnetometro.h"
+#include "Sensores/PM/power_module.h"
 #include "AHRS/ahrs.h"
 #include "FC/rc.h"
 #include "FC/control.h"
@@ -52,7 +54,8 @@
 ** AREA DE DECLARACION DE VARIABLES                                                   **
 ****************************************************************************************/
 bufferTelemetria_t telBuffer;
-
+int16_t bufferRec[512];
+float DatosRecepcion[4];
 
 /***************************************************************************************
 ** AREA DE PROTOTIPOS DE FUNCION                                                      **
@@ -63,39 +66,25 @@ void insertarDatoTelemetria(float dato);
 void insertarBufferTelemetria(float *dato, uint16_t longitud);
 uint16_t obtenerNumBytesBufferTelemetria(void);
 uint16_t obtenerNumDatosBufferTelemetria(void);
+void decodificarDatosBufferRecepcionTelemetria(uint16_t numBytes);
 
 
 /***************************************************************************************
 ** AREA DE DEFINICION DE FUNCIONES                                                    **
 ****************************************************************************************/
 char var[500];
-extern bool desactivarImu;
 int numBytes;
 char dato;
 
 
 float bytesToFloat(uint8_t *bytes) {
     float result;
-    uint32_t temp;
 
-    temp = (bytes[3]<<24) | (bytes[2]<<16) | (bytes[1]<<8) | bytes[0];
-    // los bytes del float se interpretan como unsigned, así que los convertimos a uint32_t
-    result = *((float*)&temp); // convertimos el uint32_t a float mediante un puntero
-
+    result = *(float *)&bytes[0];
     return result;
 }
 
 
-float bytesToInt(uint8_t *bytes) {
-    float result;
-    uint32_t temp;
-
-    temp = (bytes[3]<<24) | (bytes[2]<<16) | (bytes[1]<<8) | bytes[0];
-    // los bytes del float se interpretan como unsigned, así que los convertimos a uint32_t
-    result = *((int32_t*)&temp); // convertimos el uint32_t a float mediante un puntero
-
-    return result;
-}
 
 
 /***************************************************************************************
@@ -107,7 +96,10 @@ float bytesToInt(uint8_t *bytes) {
 void actualizarTelemetria(uint32_t tiempoActual)
 {
     UNUSED(tiempoActual);
-    float ref[3], w1[3], w2[3], w3[3], wG[3], a1[3], a2[3], a3[3], aG[3], euler[3], u[3];
+    float ref[3], w1[3], w2[3], w3[3], wG[3], a1[3], a2[3], a3[3], aG[3], euler[3], u[4], m[3];
+
+
+    //actualizarIMU(tiempoActual);
 
     refAngulosRC(ref);
 
@@ -121,18 +113,20 @@ void actualizarTelemetria(uint32_t tiempoActual)
     acelNumIMU(IMU_3, a3);
     acelIMU(aG);
 
+    campoMag(m);
+
     actitudAHRS(euler);
 
-    u[0] = uRollPID();
-    u[1] = uPitchPID();
-    u[2] = uYawPID();
-
+    u[0] = uRollPID() * 100.0;
+    u[1] = uPitchPID() * 100.0;
+    u[2] = uYawPID() * 100.0;
+    u[3] = 50.0;
 
     iniciarBufferTelemetria();
-
-    //insertarBufferTelemetria(ref, 3);
+    insertarDatoTelemetria(tiempoActual);
+    insertarBufferTelemetria(ref, 3);
     insertarBufferTelemetria(euler, 3);
-    /*insertarBufferTelemetria(wG, 3);
+    insertarBufferTelemetria(wG, 3);
     insertarBufferTelemetria(w1, 3);
     insertarBufferTelemetria(w2, 3);
     insertarBufferTelemetria(w3, 3);
@@ -140,53 +134,22 @@ void actualizarTelemetria(uint32_t tiempoActual)
     insertarBufferTelemetria(a1, 3);
     insertarBufferTelemetria(a2, 3);
     insertarBufferTelemetria(a3, 3);
-    insertarBufferTelemetria(u, 3);*/
+    insertarBufferTelemetria(m, 3);
+    insertarBufferTelemetria(u, 4);
+    insertarDatoTelemetria(tensionPowerModule());
     terminarBufferTelemetria();
 
     escribirBufferUSB(telBuffer.buffer, obtenerNumBytesBufferTelemetria());
-/*
 
-    sprintf(var, "%.02f,%.02f,%.02f", ref[0], ref[1], ref[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", euler[0], euler[1], euler[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", wG[0], wG[1], wG[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", w1[0], w1[1], w1[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", w2[0], w2[1], w2[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", w3[0], w3[1], w3[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", aG[0], aG[1], aG[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", a1[0], a1[1], a1[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", a2[0], a2[1], a2[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", a3[0], a3[1], a3[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-
-    sprintf(var, "%.02f,%.02f,%.02f", u[0], u[1], u[2]);
-    escribirBufferUSB((uint8_t *)var, strlen(var));
-    terminarBufferTelemetria();
-*/
     numBytes = bytesRecibidosUSB();
-    while (numBytes > 0) {
 
-        dato = leerUSB();
-        numBytes = numBytes-1;
+    if (numBytes != 0) {
+    	leerBufferUSB(&bufferRec[0], numBytes);
 
+    	decodificarDatosBufferRecepcionTelemetria(numBytes);
     }
+
+    //pruebaFloat = bytesToFloat(prueba);
 
 }
 
@@ -270,5 +233,25 @@ uint16_t obtenerNumBytesBufferTelemetria(void)
 uint16_t obtenerNumDatosBufferTelemetria(void)
 {
 	return (telBuffer.indice - 2) / 4;
+}
+
+
+/***************************************************************************************
+**  Nombre:         uint16_t obtenerNumDatosBufferTelemetria(void)
+**  Descripcion:    Devuelve el numero de floats cargados en el buffer
+**  Parametros:     Ninguno
+**  Retorno:        Numero de datos
+****************************************************************************************/
+void decodificarDatosBufferRecepcionTelemetria(uint16_t numBytes)
+{
+	uint8_t datosFloat[4];
+
+	for (uint16_t i = 0; i <= 3; i++) {
+		for (uint16_t j = 0; j <= 3; j++) {
+			datosFloat[j] = bufferRec[i*4 + j];
+		}
+
+		DatosRecepcion[i] = bytesToFloat(datosFloat);
+	}
 }
 #endif
