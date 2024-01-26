@@ -56,6 +56,14 @@
 void iniciarControladoresMM(void);
 void actualizarControlVelAngularMM(void);
 void actualizarControlActitudMM(void);
+void get_uFF_MM(float *out);
+void get_uActPID_MM(float *out);
+void get_uPID_MM(float *out);
+void get_uTotal_MM(float *out);
+void get_rActitud_MM(float *out);
+void get_rModVelAng_MM(float *out);
+void get_rVelAng_MM(float *out);
+
 //void actualizarModelos(void);
 //void actualizarControlFF(void);
 
