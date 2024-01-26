@@ -40,7 +40,7 @@
 ** AREA DE PREPROCESADOR                                                              **
 ****************************************************************************************/
 #define FREC_ACTUALIZAR_VEL_ANGULAR_FC_HZ     1000
-#define FREC_ACTUALIZAR_ACTITUD_FC_HZ         500
+#define FREC_ACTUALIZAR_ACTITUD_FC_HZ         1000
 #define FREC_ACTUALIZAR_POSICION_FC_HZ        100
 
 

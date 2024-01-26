@@ -41,7 +41,7 @@
 /***************************************************************************************
 ** AREA DE DECLARACION DE VARIABLES                                                   **
 ****************************************************************************************/
-REGISTRAR_GP_CON_TEMPLATE_RESET(configFC_t, configFC, GP_CONFIGURACION_FC, 1);
+REGISTRAR_GP_CON_TEMPLATE_RESET(configFC_t, configFC, GP_CONFIGURACION_FC, 2);
 
 TEMPLATE_RESET_GP(configFC_t, configFC,
     .frecLazoVelAngular = FREC_ACTUALIZAR_VEL_ANGULAR_FC_HZ,

@@ -90,12 +90,13 @@ void iniciarControladoresMM(void)
 {
 
 	// PIDs para la velocidad angular
-	iniciarPID(&pidVelAng_MM[0],  0.000425, 0.0005, 0.00002,  0.0, 0.5, 1);
-	iniciarPID(&pidVelAng_MM[1],  0.00119,  0.0014, 0.000056, 0.0, 0.5, 1);
+    iniciarPID(&pidVelAng_MM[0],  0.00010, 0.0002, 0.0, 0.0, 0.5, 1);
+    iniciarPID(&pidVelAng_MM[1],  0.00178, 0.0036, 0.0, 0.0, 0.5, 1);
 
 	// PIDs para la actitud
-	iniciarPID(&pidActitud_MM[0], 10, 20, 0.0, 0.0, 2000, 2000);
-	iniciarPID(&pidActitud_MM[1], 4, 0.0, 0.0, 0.0, 2000, 2000);
+    iniciarPID(&pidActitud_MM[0], 4, 0.0, 0.0, 0.0, 2000, 2000);
+    iniciarPID(&pidActitud_MM[1], 4, 0.0, 0.0, 0.0, 2000, 2000);
+
 
 	// Parámetros del modelo
 	float a1 = -1.983997748568082;
@@ -109,20 +110,20 @@ void iniciarControladoresMM(void)
     float numM[3] = {0,	 0, b0};
     int8_t n = sizeof(denM)/sizeof(float);
 
-	iniciarControladorGenerico(&modeloActitud_MM[0], numM, denM, n, 1.0, 100);
-	iniciarControladorGenerico(&modeloActitud_MM[1], numM, denM, n, 1.0, 100);
+	iniciarControladorGenerico(&modeloActitud_MM[0], numM, denM, n, 45, 100);
+	iniciarControladorGenerico(&modeloActitud_MM[1], numM, denM, n, 45, 100);
 
 	// Modelos para la velocidad angular
 	float denMv[4] = {1, a1, a0, 0};
 	float numMv[4] = {0,  0, b0/Ts, -b0/Ts};
 	n = sizeof(denMv)/sizeof(float);
 
-	iniciarControladorGenerico(&modeloVelAng_MM[0], numMv, denMv, n, 1.0, 100);
-	iniciarControladorGenerico(&modeloVelAng_MM[1], numMv, denMv, n, 1.0, 100);
+	iniciarControladorGenerico(&modeloVelAng_MM[0], numMv, denMv, n, 2000, 100);
+	iniciarControladorGenerico(&modeloVelAng_MM[1], numMv, denMv, n, 2000, 100);
 
 	// Controladores feedfordward
     float denG[3] = {1, a1,	a0};
-    float numG[3] = {k,-2*k, k};
+    float numG[3] = {0, 0, 0};
 	iniciarControladorGenerico(&controladorFF_MM[0], numG, denG, n, 1.0, 100);
 	iniciarControladorGenerico(&controladorFF_MM[1], numG, denG, n, 1.0, 100);
 
@@ -149,11 +150,11 @@ CODIGO_RAPIDO void actualizarControlVelAngularMM(void)
     uPID_MM[0] = actualizarPID(&pidVelAng_MM[0], rVelAng_MM[0], velAngular_MM[0], acelAngular_MM[0], dt, !ordenPararMotores);
     uPID_MM[1] = actualizarPID(&pidVelAng_MM[1], rVelAng_MM[1], velAngular_MM[1], acelAngular_MM[1], dt, !ordenPararMotores);
 
-    uFF_MM[0]  = actualizarControladorGenerico(&controladorFF_MM[0], ref_MM[0]);
-    uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
+    //uFF_MM[0]  = actualizarControladorGenerico(&controladorFF_MM[0], ref_MM[0]);
+    //uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
 
-    uTotal_MM[0] = uFF_MM[0] + uPID_MM[0];
-    uTotal_MM[1] = uFF_MM[1] + uPID_MM[1];
+    uTotal_MM[0] = uPID_MM[0];//uFF_MM[0] + uPID_MM[0];
+    uTotal_MM[1] = uPID_MM[1];//uFF_MM[1] + uPID_MM[1];
 
     actualizarAccionControl(uTotal_MM);
 
@@ -196,8 +197,8 @@ void actualizarControlActitudMM(void)
     rModVelAng_MM[0] = actualizarControladorGenerico(&modeloVelAng_MM[0], ref_MM[0]);
     rModVelAng_MM[1] = actualizarControladorGenerico(&modeloVelAng_MM[1], ref_MM[1]);
 
-    rVelAng_MM[0] = rModVelAng_MM[0] + rActitud_MM[0];
-    rVelAng_MM[1] = rModVelAng_MM[1] + rActitud_MM[1];
+    rVelAng_MM[0] = rModVelAng_MM[0] + uActPID_MM[0];
+    rVelAng_MM[1] = rModVelAng_MM[1] + uActPID_MM[1];
 
     if (ordenPararMotores) {
         resetearIntegralPID(&pidActitud_MM[0]);
