@@ -38,13 +38,12 @@
 #include "AHRS/ahrs.h"
 #include "FC/rc.h"
 #include "FC/control.h"
-
+#include "FC/control_ModelMatching.h"
 
 /***************************************************************************************
 ** AREA DE PREPROCESADOR                                                              **
 ****************************************************************************************/
-
-
+#define TELEMETRIA_MM
 /***************************************************************************************
 ** AREA DE DEFINICION DE TIPOS                                                        **
 ****************************************************************************************/
@@ -96,10 +95,54 @@ float bytesToFloat(uint8_t *bytes) {
 void actualizarTelemetria(uint32_t tiempoActual)
 {
     UNUSED(tiempoActual);
+
+#ifdef TELEMETRIA_MM
+    // Trama para el sistema de control Model Martching
+    float ref[3], refM[3], refW[3], refC2[3], wG[3], uC1[3], uC2[3], uFF[3], aG[3], euler[3], u[4], m[3];
+
+    refAngulosRC(ref);
+    giroIMU(wG);
+    acelIMU(aG);
+    campoMag(m);
+    actitudAHRS(euler);
+
+    get_rActitud_MM(refM);
+    get_rModVelAng_MM(refW);
+    get_rVelAng_MM(refC2);
+    get_uActPID_MM(uC1);
+    get_uPID_MM(uC2);
+    get_uFF_MM(uFF);
+    get_uTotal_MM(u);
+
+    for (uint8_t i=0; i<3;i++){
+    	uC2[i] = uC2[i] * 100;
+    	uFF[i] = uFF[i] * 100;
+    	u[i]   = u[i] * 100;
+    }
+    u[3] = u[3]*100;
+
+    iniciarBufferTelemetria();
+    insertarDatoTelemetria(tiempoActual);
+    insertarBufferTelemetria(ref, 3);
+    insertarBufferTelemetria(euler, 3);
+    insertarBufferTelemetria(wG, 3);
+    insertarBufferTelemetria(refM, 3);
+    insertarBufferTelemetria(refW, 3);
+    insertarBufferTelemetria(refC2, 3);
+    insertarBufferTelemetria(aG, 3);
+    insertarBufferTelemetria(uC1, 3);
+    insertarBufferTelemetria(uC2, 3);
+    insertarBufferTelemetria(uFF, 3);
+    insertarBufferTelemetria(m, 3);
+    insertarBufferTelemetria(u, 4);
+    insertarDatoTelemetria(tensionPowerModule());
+    terminarBufferTelemetria();
+    escribirBufferUSB(telBuffer.buffer, obtenerNumBytesBufferTelemetria());
+
+
+#else
+    // Trama para el sistema de control standar
     float ref[3], w1[3], w2[3], w3[3], wG[3], a1[3], a2[3], a3[3], aG[3], euler[3], u[4], m[3];
-
-
-    //actualizarIMU(tiempoActual);
 
     refAngulosRC(ref);
 
@@ -138,8 +181,9 @@ void actualizarTelemetria(uint32_t tiempoActual)
     insertarBufferTelemetria(u, 4);
     insertarDatoTelemetria(tensionPowerModule());
     terminarBufferTelemetria();
-
     escribirBufferUSB(telBuffer.buffer, obtenerNumBytesBufferTelemetria());
+
+#endif
 
     numBytes = bytesRecibidosUSB();
 

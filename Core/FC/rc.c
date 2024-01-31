@@ -149,6 +149,7 @@ void actualizarRC(uint32_t tiempoActual)
     }
 
     // Si hay problemas con la radio se resetean las referencias
+    // Comentado para pruebas de telemetria sin radio
     if (!radioOperativa()) {
         rc.roll = 0;
         rc.pitch = 0;
@@ -157,6 +158,7 @@ void actualizarRC(uint32_t tiempoActual)
         rc.eStop = true;
         return;
     }
+
 
     // Solo se actualizan las referencias y los modos cuando la radio esta OK y ha llegado una nueva entrada
     //if (nuevaEntradaRadioValida()) {

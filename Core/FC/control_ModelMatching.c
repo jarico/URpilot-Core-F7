@@ -103,7 +103,7 @@ void iniciarControladoresMM(void)
 	float a0 = 0.984127320055285;
 	float b0 = 1 + a1 + a0;
 	float Ts = 0.001;
-	float k  = 7.4674;
+	//float k  = 7.4674;
 
 	// Modelos para la actitud
     float denM[3] = {1, a1,	a0};
@@ -122,10 +122,14 @@ void iniciarControladoresMM(void)
 	iniciarControladorGenerico(&modeloVelAng_MM[1], numMv, denMv, n, 2000, 100);
 
 	// Controladores feedfordward
-    float denG[3] = {1, a1,	a0};
-    float numG[3] = {0, 0, 0};
-	iniciarControladorGenerico(&controladorFF_MM[0], numG, denG, n, 1.0, 100);
-	iniciarControladorGenerico(&controladorFF_MM[1], numG, denG, n, 1.0, 100);
+    float denG[5] = {0.1339,   -0.2657,    0.1318,         0,         0};
+    float numG[5] = {0,     0,    0.1296e-3,   -0.2591e-3,    0.1296e-3};
+    n = sizeof(denG)/sizeof(float);
+    iniciarControladorGenerico(&controladorFF_MM[0], numG, denG, n, 1.0, 1000);
+	float denG2[5] = {0.1339,   -0.2657,    0.1318,         0,         0};
+	float numG2[5] = {0,         0,    0.0023,   -0.0046,    0.0023};
+
+	iniciarControladorGenerico(&controladorFF_MM[1], numG2, denG2, n, 1.0, 100);
 
 }
 
@@ -150,11 +154,14 @@ CODIGO_RAPIDO void actualizarControlVelAngularMM(void)
     uPID_MM[0] = actualizarPID(&pidVelAng_MM[0], rVelAng_MM[0], velAngular_MM[0], acelAngular_MM[0], dt, !ordenPararMotores);
     uPID_MM[1] = actualizarPID(&pidVelAng_MM[1], rVelAng_MM[1], velAngular_MM[1], acelAngular_MM[1], dt, !ordenPararMotores);
 
-    //uFF_MM[0]  = actualizarControladorGenerico(&controladorFF_MM[0], ref_MM[0]);
-    //uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
+    uFF_MM[0]  = actualizarControladorGenerico(&controladorFF_MM[0], ref_MM[0]);
+    uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
 
-    uTotal_MM[0] = uPID_MM[0];//uFF_MM[0] + uPID_MM[0];
-    uTotal_MM[1] = uPID_MM[1];//uFF_MM[1] + uPID_MM[1];
+    //uTotal_MM[0] = uPID_MM[0];//uFF_MM[0] + uPID_MM[0];
+    //uTotal_MM[1] = uPID_MM[1];//uFF_MM[1] + uPID_MM[1];
+
+    uTotal_MM[0] = uPID_MM[0];// uFF_MM[0];
+    uTotal_MM[1] = uPID_MM[1] + uFF_MM[1];
 
     actualizarAccionControl(uTotal_MM);
 
@@ -211,5 +218,94 @@ void actualizarControlActitudMM(void)
 }
 
 
+/***************************************************************************************
+**  Nombre:         void get_uFF_MM(float *out)
+**  Descripcion:    Obtiene las acciones de control de los controladores de prealimentación
+**  Parametros:     Puntero al vector de salidas
+**  Retorno:        Ninguno
+****************************************************************************************/
+void get_uFF_MM(float *out)
+{
+    out[0] = uFF_MM[0];
+    out[1] = uFF_MM[1];
+    out[2] = uFF_MM[2];
+}
 
+/***************************************************************************************
+**  Nombre:         void get_uActPID_MM(float *out)
+**  Descripcion:    Obtiene las acciones de control del los controladores de actitud
+**  Parametros:     Puntero al vector de salidas
+**  Retorno:        Ninguno
+****************************************************************************************/
+void get_uActPID_MM(float *out)
+{
+    out[0] = uActPID_MM[0];
+    out[1] = uActPID_MM[1];
+    out[2] = uActPID_MM[2];
+}
 
+/***************************************************************************************
+**  Nombre:         void get_uPID_MM(float *out)
+**  Descripcion:    Obtiene las acciones de control de los controladores de velocidad
+**  Parametros:     Puntero al vector de salidas
+**  Retorno:        Ninguno
+****************************************************************************************/
+void get_uPID_MM(float *out)
+{
+    out[0] = uPID_MM[0];
+    out[1] = uPID_MM[1];
+    out[2] = uPID_MM[2];
+}
+
+/***************************************************************************************
+**  Nombre:         void get_uTotal_MM(float *out)
+**  Descripcion:    Obtiene las acciones de control totales
+**  Parametros:     Puntero al vector de salidas
+**  Retorno:        Ninguno
+****************************************************************************************/
+void get_uTotal_MM(float *out)
+{
+    out[0] = uTotal_MM[0];
+    out[1] = uTotal_MM[1];
+    out[2] = uTotal_MM[2];
+    out[3] = 0.5;
+}
+
+/***************************************************************************************
+**  Nombre:         void get_rActitud_MM(float *out)
+**  Descripcion:    Obtiene la referencia para el lazo externo
+**  Parametros:     Puntero al vector de salidas
+**  Retorno:        Ninguno
+****************************************************************************************/
+void get_rActitud_MM(float *out)
+{
+    out[0] = rActitud_MM[0];
+    out[1] = rActitud_MM[1];
+    out[2] = rActitud_MM[2];
+}
+
+/***************************************************************************************
+**  Nombre:         void get_rModVelAng_MM(float *out)
+**  Descripcion:    Obtiene la referencia del modelo del velocidad
+**  Parametros:     Puntero al vector de salidas
+**  Retorno:        Ninguno
+****************************************************************************************/
+void get_rModVelAng_MM(float *out)
+{
+    out[0] = rModVelAng_MM[0];
+    out[1] = rModVelAng_MM[1];
+    out[2] = rModVelAng_MM[2];
+}
+
+/***************************************************************************************
+**  Nombre:         void get_rModVelAng_MM(float *out)
+**  Descripcion:    Obtiene la referencia del lazo interno
+**  Parametros:     Puntero al vector de salidas
+**  Retorno:        Ninguno
+****************************************************************************************/
+void get_rVelAng_MM(float *out)
+{
+    out[0] = rVelAng_MM[0];
+    out[1] = rVelAng_MM[1];
+    out[2] = rVelAng_MM[2];
+}
