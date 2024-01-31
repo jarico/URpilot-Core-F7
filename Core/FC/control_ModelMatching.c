@@ -122,10 +122,14 @@ void iniciarControladoresMM(void)
 	iniciarControladorGenerico(&modeloVelAng_MM[1], numMv, denMv, n, 2000, 100);
 
 	// Controladores feedfordward
-    float denG[3] = {1, a1,	a0};
-    float numG[3] = {0, 0, 0};
-	iniciarControladorGenerico(&controladorFF_MM[0], numG, denG, n, 1.0, 100);
-	iniciarControladorGenerico(&controladorFF_MM[1], numG, denG, n, 1.0, 100);
+    float denG[5] = {0.1339,   -0.2657,    0.1318,         0,         0};
+    float numG[5] = {0,     0,    0.1296e-3,   -0.2591e-3,    0.1296e-3};
+    n = sizeof(denG)/sizeof(float);
+    iniciarControladorGenerico(&controladorFF_MM[0], numG, denG, n, 1.0, 1000);
+	float denG2[5] = {0.1339,   -0.2657,    0.1318,         0,         0};
+	float numG2[5] = {0,         0,    0.0023,   -0.0046,    0.0023};
+
+	iniciarControladorGenerico(&controladorFF_MM[1], numG2, denG2, n, 1.0, 100);
 
 }
 
@@ -150,19 +154,22 @@ CODIGO_RAPIDO void actualizarControlVelAngularMM(void)
     uPID_MM[0] = actualizarPID(&pidVelAng_MM[0], rVelAng_MM[0], velAngular_MM[0], acelAngular_MM[0], dt, !ordenPararMotores);
     uPID_MM[1] = actualizarPID(&pidVelAng_MM[1], rVelAng_MM[1], velAngular_MM[1], acelAngular_MM[1], dt, !ordenPararMotores);
 
-    //uFF_MM[0]  = actualizarControladorGenerico(&controladorFF_MM[0], ref_MM[0]);
-    //uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
+    uFF_MM[0]  = actualizarControladorGenerico(&controladorFF_MM[0], ref_MM[0]);
+    uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
 
-    uTotal_MM[0] = uPID_MM[0];//uFF_MM[0] + uPID_MM[0];
-    uTotal_MM[1] = uPID_MM[1];//uFF_MM[1] + uPID_MM[1];
+    //uTotal_MM[0] = uPID_MM[0];//uFF_MM[0] + uPID_MM[0];
+    //uTotal_MM[1] = uPID_MM[1];//uFF_MM[1] + uPID_MM[1];
+
+    uTotal_MM[0] = uPID_MM[0];// uFF_MM[0];
+    uTotal_MM[1] = uPID_MM[1] + uFF_MM[1];
 
     actualizarAccionControl(uTotal_MM);
 
     if (ordenPararMotores) {
         resetearIntegralPID(&pidVelAng_MM[0]);
         resetearIntegralPID(&pidVelAng_MM[1]);
-        //resetearControladorGenerico(&controladorFF_MM[0]);
-        //resetearControladorGenerico(&controladorFF_MM[1]);
+        resetearControladorGenerico(&controladorFF_MM[0]);
+        resetearControladorGenerico(&controladorFF_MM[1]);
     }
 }
 
@@ -203,10 +210,10 @@ void actualizarControlActitudMM(void)
     if (ordenPararMotores) {
         resetearIntegralPID(&pidActitud_MM[0]);
         resetearIntegralPID(&pidActitud_MM[1]);
-        //resetearControladorGenerico(&modeloActitud_MM[0]);
-        //resetearControladorGenerico(&modeloActitud_MM[1]);
-        //resetearControladorGenerico(&modeloVelAng_MM[0]);
-        //resetearControladorGenerico(&modeloVelAng_MM[1]);
+        resetearControladorGenerico(&modeloActitud_MM[0]);
+        resetearControladorGenerico(&modeloActitud_MM[1]);
+        resetearControladorGenerico(&modeloVelAng_MM[0]);
+        resetearControladorGenerico(&modeloVelAng_MM[1]);
     }
 }
 

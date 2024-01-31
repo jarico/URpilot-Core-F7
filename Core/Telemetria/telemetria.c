@@ -114,6 +114,13 @@ void actualizarTelemetria(uint32_t tiempoActual)
     get_uFF_MM(uFF);
     get_uTotal_MM(u);
 
+    for (uint8_t i=0; i<3;i++){
+    	uC2[i] = uC2[i] * 100;
+    	uFF[i] = uFF[i] * 100;
+    	u[i]   = u[i] * 100;
+    }
+    u[3] = u[3]*100;
+
     iniciarBufferTelemetria();
     insertarDatoTelemetria(tiempoActual);
     insertarBufferTelemetria(ref, 3);
