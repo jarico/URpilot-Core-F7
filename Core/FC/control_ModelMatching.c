@@ -123,11 +123,11 @@ void iniciarControladoresMM(void)
 
 	// Controladores feedfordward
     float denG[5] = {0.1339,   -0.2657,    0.1318,         0,         0};
-    float numG[5] = {0,     0,    0.1296e-3,   -0.2591e-3,    0.1296e-3};
+    float numG[5] = {0,     0,    0.0001296,   -0.0002591,    0.0001296};
     n = sizeof(denG)/sizeof(float);
     iniciarControladorGenerico(&controladorFF_MM[0], numG, denG, n, 1.0, 1000);
-	float denG2[5] = {0.1339,   -0.2657,    0.1318,         0,         0};
-	float numG2[5] = {0,         0,    0.0023,   -0.0046,    0.0023};
+	float denG2[5] = {0.133910000000000,  -0.264713236345888,   0.130821255874680,       0,         0};
+	float numG2[5] = {0,	0,   0.002401975871484,  -0.004803951742967,   0.002401975871484};
 
 	iniciarControladorGenerico(&controladorFF_MM[1], numG2, denG2, n, 1.0, 100);
 
