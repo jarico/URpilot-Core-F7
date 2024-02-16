@@ -113,6 +113,8 @@ float actualizarControladorGenerico(controladorGenerico_t *controlador, float en
         aux = aux - controlador->p.den[i] * controlador->salida[i];
     }
 
+    controlador-> salida[0] = aux;
+
     if (aux>controlador->p.limSalida){
         aux=controlador->p.limSalida;
     }
@@ -121,6 +123,5 @@ float actualizarControladorGenerico(controladorGenerico_t *controlador, float en
         aux=-controlador->p.limSalida;
     }
 
-    controlador-> salida[0] = aux;
     return aux;
 }
