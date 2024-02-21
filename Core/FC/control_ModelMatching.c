@@ -58,6 +58,7 @@ static controladorGenerico_t modeloVelAng_MM[3];
 static controladorGenerico_t controladorFF_MM[3];
 static controladorGenerico_t C1_MM[3];
 static controladorGenerico_t C2_MM[3];
+static controladorGenerico_t G[2];
 static float uPID_MM[4];
 static float uActPID_MM[3];
 static float uFF_MM[3];
@@ -101,16 +102,16 @@ void iniciarControladoresMM(void)
 
 
     // Empleamos controladores genericos en el lazo externo e interno, pruebas temporales
-    float denC1[4] = {1.000000000000000,  -2.983634205305473,   2.967344262848993,  -0.983710057543520};
-  	float numC1[4] = {0.021660067953081,  -0.043249097257655,   0.021589041776640,                   0};
+    float denC1[3] = {1.000000000000000,  -1.980174957022105,   0.980274678760970};
+  	float numC1[3] = {0.023885439482437,  -0.023785717743572,                   0};
   	int8_t n = sizeof(denC1)/sizeof(float);
    	iniciarControladorGenerico(&C1_MM[1], numC1, denC1, n, 2000, 100);
 
     //float denC2[3] = {1.000000000000000,  -1.990049833749168,   0.990049833749168};
     //float numC2[3] = {0.002324376675727,  -0.004643410642320,   0.002319036752639};
 
-   	float denC2[3] = {1.000000000000000,  -1.991340384484209,   0.991340384484208};
-   	float numC2[3] = {0.001978620257659,  -0.003947165228483,   0.001968553040814};
+   	float denC2[3] = {1.000000000000000,  -1.993391956751855,   0.993391956751855};
+   	float numC2[3] = {0.001770133733254,  -0.003531582136757,   0.001761454561609};
    	n = sizeof(denC2)/sizeof(float);
     iniciarControladorGenerico(&C2_MM[1], numC2, denC2, n, 1, 100);
 
@@ -146,12 +147,26 @@ void iniciarControladoresMM(void)
     //float denG2[3] = {1.000000000000000,  -1.879515563885782,   0.880352903671719};
 	//float numG2[3] = {0.121414268960858,  -0.242828537921715,   0.121414268960858};
 
-	float denG2[3] = {1.000000000000000,  -1.988365969464611,   0.988399807131236};
-	float numG2[3] = {0.005449602111937,  -0.010899204223874,   0.005449602111937};
+	float numG2[4] = {0.006997777273266,  -0.020978061839927,   0.020962791860057,  -0.006982507293396};
+	float denG2[4] = {1.000000000000000,  -2.983588725734746,   2.967255460276348,  -0.983666639727251};
 
 	n = sizeof(denG2)/sizeof(float);
 	iniciarControladorGenerico(&controladorFF_MM[1], numG2, denG2, n, 1.0, 100);
 
+    // Controlador dividido en dos etapas
+    //Primera etapa
+	float numG_e1[3] = {1.0,	-2,		1.0};
+	float denG_e1[3] = {1.000000000000000,  -1.987222293777649,   0.987255922757562};
+
+	n = sizeof(denG_e1)/sizeof(float);
+	iniciarControladorGenerico(&G[0], numG_e1, denG_e1, n, 1000.0, 100);
+
+	//Segunda etapa
+	float numG_e2[2] = {0.017001,   -0.016353596713012};
+	float denG_e2[2] = {1.000000000000000,  -0.882963730894899};
+
+	n = sizeof(denG_e2)/sizeof(float);
+	iniciarControladorGenerico(&G[1], numG_e2, denG_e2, n, 1.0, 100);
 }
 
 
@@ -178,8 +193,9 @@ CODIGO_RAPIDO void actualizarControlVelAngularMM(void)
     uPID_MM[1] = actualizarControladorGenerico(&C2_MM[1], E2_MM);
 
     uFF_MM[0]  = actualizarControladorGenerico(&controladorFF_MM[0], ref_MM[0]);
-    uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
-
+    //uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
+    float aux = actualizarControladorGenerico(&G[0], ref_MM[1]);
+    uFF_MM[1] = actualizarControladorGenerico(&G[1], aux);
     //uTotal_MM[0] = uPID_MM[0];//uFF_MM[0] + uPID_MM[0];
     //uTotal_MM[1] = uPID_MM[1];//uFF_MM[1] + uPID_MM[1];
 
