@@ -28,6 +28,7 @@
 #include "control_ModelMatching.h"
 
 #include "PID/controlador_generico.h"
+#include "PID/controlador_genericoDouble.h"
 #include "PID/pid.h"
 #include "Drivers/tiempo.h"
 #include "Filtros/filtro_pasa_bajo.h"
@@ -53,12 +54,12 @@
 ****************************************************************************************/
 static pid_t pidVelAng_MM[3];
 static pid_t pidActitud_MM[3];
-static controladorGenerico_t modeloActitud_MM[3];
-static controladorGenerico_t modeloVelAng_MM[3];
-static controladorGenerico_t controladorFF_MM[3];
-static controladorGenerico_t C1_MM[3];
-static controladorGenerico_t C2_MM[3];
-static controladorGenerico_t G[2];
+static controladorGenericoD_t modeloActitud_MM[3];
+static controladorGenericoD_t modeloVelAng_MM[3];
+static controladorGenericoD_t controladorFF_MM[3];
+static controladorGenericoD_t C1_MM[3];
+static controladorGenericoD_t C2_MM[3];
+static controladorGenericoD_t G[2];
 static float uPID_MM[4];
 static float uActPID_MM[3];
 static float uFF_MM[3];
@@ -102,71 +103,71 @@ void iniciarControladoresMM(void)
 
 
     // Empleamos controladores genericos en el lazo externo e interno, pruebas temporales
-    float denC1[3] = {1.000000000000000,  -1.980174957022105,   0.980274678760970};
-  	float numC1[3] = {0.023885439482437,  -0.023785717743572,                   0};
-  	int8_t n = sizeof(denC1)/sizeof(float);
-   	iniciarControladorGenerico(&C1_MM[1], numC1, denC1, n, 2000, 100);
+    double denC1[4] = {1.000000000000000,  -2.978476662009833,   2.957044182859258,  -0.978567520849425};
+    double numC1[4] = {0.046804980158302,  -0.093419592114382,   0.046614702814919,                   0};
+  	int8_t n = sizeof(denC1)/sizeof(double);
+  	iniciarControladorGenericoD(&C1_MM[1], numC1, denC1, n, 2000, 100);
 
     //float denC2[3] = {1.000000000000000,  -1.990049833749168,   0.990049833749168};
     //float numC2[3] = {0.002324376675727,  -0.004643410642320,   0.002319036752639};
 
-   	float denC2[3] = {1.000000000000000,  -1.993391956751855,   0.993391956751855};
-   	float numC2[3] = {0.001770133733254,  -0.003531582136757,   0.001761454561609};
-   	n = sizeof(denC2)/sizeof(float);
-    iniciarControladorGenerico(&C2_MM[1], numC2, denC2, n, 1, 100);
+   	double denC2[3] = {1.000000000000000,  -1.941301330791778,   0.941699963348203};
+   	double numC2[3] = { 0,   1,  -0.996137478799238};
+   	n = sizeof(denC2)/sizeof(double);
+    iniciarControladorGenericoD(&C2_MM[1], numC2, denC2, n, 10000, 100);
 
 
 	// Parámetros del modelo
-	float a1 = -1.988365969464611;
-	float a0 = 0.988399807131236;
-	float b0 = 1 + a1 + a0;
-	float Ts = 0.001;
+    double a1 = -1.988365969464611;
+	double a0 = 0.988399807131236;
+	double b0 = 1 + a1 + a0;
+	double Ts = 0.001;
 
 	// Modelos para la actitud
-    float denM[3] = {1, a1,	a0};
-    float numM[3] = {0,	 0, b0};
-    n = sizeof(denM)/sizeof(float);
+	double denM[3] = {1, a1,	a0};
+	double numM[3] = {0,	 0, b0};
+    n = sizeof(denM)/sizeof(double);
 
-	iniciarControladorGenerico(&modeloActitud_MM[0], numM, denM, n, 45, 100);
-	iniciarControladorGenerico(&modeloActitud_MM[1], numM, denM, n, 45, 100);
+	iniciarControladorGenericoD(&modeloActitud_MM[0], numM, denM, n, 45, 100);
+	iniciarControladorGenericoD(&modeloActitud_MM[1], numM, denM, n, 45, 100);
 
 	// Modelos para la velocidad angular
-	float denMv[4] = {1, a1, a0, 0};
-	float numMv[4] = {0,  0, b0/Ts, -b0/Ts};
-	n = sizeof(denMv)/sizeof(float);
+	double denMv[4] = {1, a1, a0, 0};
+	double numMv[4] = {0,  0, b0/Ts, -b0/Ts};
+	n = sizeof(denMv)/sizeof(double);
 
-	iniciarControladorGenerico(&modeloVelAng_MM[0], numMv, denMv, n, 2000, 100);
-	iniciarControladorGenerico(&modeloVelAng_MM[1], numMv, denMv, n, 2000, 100);
+	iniciarControladorGenericoD(&modeloVelAng_MM[0], numMv, denMv, n, 2000, 100);
+	iniciarControladorGenericoD(&modeloVelAng_MM[1], numMv, denMv, n, 2000, 100);
 
 	// Controladores feedfordward
-    float denG[5] = {0.1339,   -0.2657,    0.1318,         0,         0};
-    float numG[5] = {0,     0,    0.0001296,   -0.0002591,    0.0001296};
-    n = sizeof(denG)/sizeof(float);
-    iniciarControladorGenerico(&controladorFF_MM[0], numG, denG, n, 1.0, 1000);
+	double denG[5] = {0.1339,   -0.2657,    0.1318,         0,         0};
+	double numG[5] = {0,     0,    0.0001296,   -0.0002591,    0.0001296};
+    n = sizeof(denG)/sizeof(double);
+    iniciarControladorGenericoD(&controladorFF_MM[0], numG, denG, n, 1.0, 1000);
 
     //float denG2[3] = {1.000000000000000,  -1.879515563885782,   0.880352903671719};
 	//float numG2[3] = {0.121414268960858,  -0.242828537921715,   0.121414268960858};
 
-	float numG2[4] = {0.006997777273266,  -0.020978061839927,   0.020962791860057,  -0.006982507293396};
-	float denG2[4] = {1.000000000000000,  -2.983588725734746,   2.967255460276348,  -0.983666639727251};
+    double numG2[6] = {0,   0.175619118700255,  -0.696816757731002,   1.036783615737149,  -0.685593433082314,   0.170007456375911};
+    double denG2[6] = {1.000000000000000,  -2.980311787660942,   2.960761389660428,  -0.980449277841270,                   0,                   0};
 
-	n = sizeof(denG2)/sizeof(float);
-	iniciarControladorGenerico(&controladorFF_MM[1], numG2, denG2, n, 1.0, 100);
+	n = sizeof(denG2)/sizeof(double);
+	iniciarControladorGenericoD(&controladorFF_MM[1], numG2, denG2, n, 1.0, 100);
 
     // Controlador dividido en dos etapas
     //Primera etapa
-	float numG_e1[3] = {1.0,	-2,		1.0};
-	float denG_e1[3] = {1.000000000000000,  -1.987222293777649,   0.987255922757562};
+	double numG_e1[3] = {1.0,	-2,		1.0};
+	double denG_e1[3] = {1.000000000000000,  -1.987222293777649,   0.987255922757562};
 
-	n = sizeof(denG_e1)/sizeof(float);
-	iniciarControladorGenerico(&G[0], numG_e1, denG_e1, n, 1000.0, 100);
+	n = sizeof(denG_e1)/sizeof(double);
+	iniciarControladorGenericoD(&G[0], numG_e1, denG_e1, n, 1000.0, 100);
 
 	//Segunda etapa
-	float numG_e2[2] = {0.017001,   -0.016353596713012};
-	float denG_e2[2] = {1.000000000000000,  -0.882963730894899};
+	double numG_e2[2] = {0.017001,   -0.016353596713012};
+	double denG_e2[2] = {1.000000000000000,  -0.882963730894899};
 
-	n = sizeof(denG_e2)/sizeof(float);
-	iniciarControladorGenerico(&G[1], numG_e2, denG_e2, n, 1.0, 100);
+	n = sizeof(denG_e2)/sizeof(double);
+	iniciarControladorGenericoD(&G[1], numG_e2, denG_e2, n, 1.0, 100);
 }
 
 
@@ -189,13 +190,13 @@ CODIGO_RAPIDO void actualizarControlVelAngularMM(void)
 
     uPID_MM[0] = actualizarPID(&pidVelAng_MM[0], rVelAng_MM[0], velAngular_MM[0], acelAngular_MM[0], dt, !ordenPararMotores);
     //uPID_MM[1] = actualizarPID(&pidVelAng_MM[1], rVelAng_MM[1], velAngular_MM[1], acelAngular_MM[1], dt, !ordenPararMotores);
-    float E2_MM    = rVelAng_MM[1] - velAngular_MM[1];
-    uPID_MM[1] = actualizarControladorGenerico(&C2_MM[1], E2_MM);
+    double E2_MM    = (double)rVelAng_MM[1] - (double)velAngular_MM[1];
+    uPID_MM[1] = 0.00010203 * actualizarControladorGenericoD(&C2_MM[1], E2_MM);
 
-    uFF_MM[0]  = actualizarControladorGenerico(&controladorFF_MM[0], ref_MM[0]);
+    uFF_MM[0]  = actualizarControladorGenericoD(&controladorFF_MM[0], ref_MM[0]);
     //uFF_MM[1]  = actualizarControladorGenerico(&controladorFF_MM[1], ref_MM[1]);
-    float aux = actualizarControladorGenerico(&G[0], ref_MM[1]);
-    uFF_MM[1] = actualizarControladorGenerico(&G[1], aux);
+    double aux = actualizarControladorGenericoD(&G[0], ref_MM[1]);
+    uFF_MM[1] = actualizarControladorGenericoD(&G[1], aux);
     //uTotal_MM[0] = uPID_MM[0];//uFF_MM[0] + uPID_MM[0];
     //uTotal_MM[1] = uPID_MM[1];//uFF_MM[1] + uPID_MM[1];
 
@@ -207,8 +208,8 @@ CODIGO_RAPIDO void actualizarControlVelAngularMM(void)
     if (ordenPararMotores) {
         resetearIntegralPID(&pidVelAng_MM[0]);
         resetearIntegralPID(&pidVelAng_MM[1]);
-        resetearControladorGenerico(&controladorFF_MM[0]);
-        resetearControladorGenerico(&controladorFF_MM[1]);
+        resetearControladorGenericoD(&controladorFF_MM[0]);
+        resetearControladorGenericoD(&controladorFF_MM[1]);
     }
 }
 
@@ -234,17 +235,17 @@ void actualizarControlActitudMM(void)
     giroIMU(velAngular_MM);
     actitudAHRS(euler_MM);
 
-    rActitud_MM[0] = actualizarControladorGenerico(&modeloActitud_MM[0], ref_MM[0]);
-    rActitud_MM[1] = actualizarControladorGenerico(&modeloActitud_MM[1], ref_MM[1]);
+    rActitud_MM[0] = actualizarControladorGenericoD(&modeloActitud_MM[0], ref_MM[0]);
+    rActitud_MM[1] = actualizarControladorGenericoD(&modeloActitud_MM[1], ref_MM[1]);
 
     uActPID_MM[0] = actualizarPID(&pidActitud_MM[0], rActitud_MM[0], euler_MM[0], velAngular_MM[0], dt, !ordenPararMotores);
     //uActPID_MM[1] = actualizarPID(&pidActitud_MM[1], rActitud_MM[1], euler_MM[1], velAngular_MM[1], dt, !ordenPararMotores);
-    float E1_MM    = rActitud_MM[1] - euler_MM[1];
-    uActPID_MM[1] = actualizarControladorGenerico(&C1_MM[1], E1_MM);
+    double E1_MM    = rActitud_MM[1] - euler_MM[1];
+    uActPID_MM[1] = actualizarControladorGenericoD(&C1_MM[1], E1_MM);
 
 
-    rModVelAng_MM[0] = actualizarControladorGenerico(&modeloVelAng_MM[0], ref_MM[0]);
-    rModVelAng_MM[1] = actualizarControladorGenerico(&modeloVelAng_MM[1], ref_MM[1]);
+    rModVelAng_MM[0] = actualizarControladorGenericoD(&modeloVelAng_MM[0], ref_MM[0]);
+    rModVelAng_MM[1] = actualizarControladorGenericoD(&modeloVelAng_MM[1], ref_MM[1]);
 
     rVelAng_MM[0] = rModVelAng_MM[0] + uActPID_MM[0];
     rVelAng_MM[1] = rModVelAng_MM[1] + uActPID_MM[1];
@@ -252,10 +253,10 @@ void actualizarControlActitudMM(void)
     if (ordenPararMotores) {
         resetearIntegralPID(&pidActitud_MM[0]);
         resetearIntegralPID(&pidActitud_MM[1]);
-        resetearControladorGenerico(&modeloActitud_MM[0]);
-        resetearControladorGenerico(&modeloActitud_MM[1]);
-        resetearControladorGenerico(&modeloVelAng_MM[0]);
-        resetearControladorGenerico(&modeloVelAng_MM[1]);
+        resetearControladorGenericoD(&modeloActitud_MM[0]);
+        resetearControladorGenericoD(&modeloActitud_MM[1]);
+        resetearControladorGenericoD(&modeloVelAng_MM[0]);
+        resetearControladorGenericoD(&modeloVelAng_MM[1]);
     }
 }
 
